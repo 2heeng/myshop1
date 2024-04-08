@@ -27,13 +27,15 @@
       <groupId>org.springframework</groupId>
       <artifactId>spring-context</artifactId>
       <version>${org.springframework-version}</version>
-      <exclusions>
+      <exclusions> <!--특정한 예외를 정하는 블록,특정 라이브러리를 제외 -->
         <!-- Exclude Commons Logging in favor of SLF4j -->
         <exclusion>
-          <groupId>commons-logging</groupId>
+          <groupId>commons-logging</groupId> <!--commons-logging을 slf4j로 대체-->
           <artifactId>commons-logging</artifactId>
         </exclusion>
       </exclusions>
+
+
     </dependency>
     <dependency>
       <groupId>org.springframework</groupId>
@@ -135,11 +137,12 @@
     </dependency>
 
 
-    <dependency>
-      <groupId>mysql</groupId>
-      <artifactId>mysql-connector-java</artifactId>
-      <version>5.1.29</version>
-    </dependency>
+<!--    <dependency>-->
+<!--      <groupId>mysql</groupId>-->
+<!--      <artifactId>mysql-connector-java</artifactId>-->
+<!--      <version>5.1.29</version>-->
+<!--    </dependency>-->
+
     <!-- myBatis 설정관련 라이브러리 -->
     <dependency>
       <groupId>commons-beanutils</groupId>
@@ -167,6 +170,7 @@
       <artifactId>cglib-nodep</artifactId>
       <version>2.2</version>
     </dependency>
+
     <dependency>
       <groupId>org.apache.tiles</groupId>
       <artifactId>tiles-core</artifactId>
