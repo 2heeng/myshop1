@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<beans xmlns="http://www.springframework.org/schema/beans"
+<beans:beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:beans="http://www.springframework.org/schema/beans"
        xmlns:context="http://www.springframework.org/schema/context"
@@ -50,13 +50,13 @@
 <!--    </bean>-->
 
     <!--Interceptor-->
-<!--    <mvc:interceptors>-->
-<!--        <mvc:interceptor>-->
-<!--            <mvc:mapping path="/*/*.do"/>-->
-<!--            <mvc:mapping path="/*/*/*.do"/>-->
-<!--            <beans:bean class="com.bookshop01.common.interceptor.ViewNameInterceptor" />-->
-<!--        </mvc:interceptor>-->
-<!--    </mvc:interceptors>-->
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/*/*.do"/>
+            <mvc:mapping path="/*/*/*.do"/>
+            <beans:bean class="com.myshop1.common.interceptor.ViewNameInterceptor" />
+        </mvc:interceptor>
+    </mvc:interceptors>
 
     <!-- 멀티파트 리졸버 -->
     <beans:bean id="multipartResolver"  class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
@@ -65,4 +65,4 @@
         <beans:property name="defaultEncoding" value="utf-8" />
     </beans:bean>
 
-</beans>
+</beans:beans>
