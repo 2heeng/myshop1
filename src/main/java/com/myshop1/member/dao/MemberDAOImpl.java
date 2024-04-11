@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Repository;
 
+import java.util.Map;
+
 @Repository("memberDAO")
 public class MemberDAOImpl implements MemberDAO {
 
@@ -15,8 +17,8 @@ public class MemberDAOImpl implements MemberDAO {
     private SqlSession sqlSession;
 
     @Override
-    public MemberVO login(MemberVO memberVO) throws DataAccessException {
+    public MemberVO login(Map<String, String> loginMap) throws DataAccessException {
 
-        return sqlSession.selectOne("mapper.member.login",memberVO);
+        return sqlSession.selectOne("mapper.member.login",loginMap);
     }
 }

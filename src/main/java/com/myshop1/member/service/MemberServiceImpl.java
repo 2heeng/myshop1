@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Service;
 
+import java.util.Map;
+
 @Service("memberService")
 public class MemberServiceImpl implements MemberService{
 
@@ -15,7 +17,7 @@ public class MemberServiceImpl implements MemberService{
 
 
     @Override
-    public MemberVO login(MemberVO memberVO) throws DataAccessException {
-        return memberDAO.login(memberVO);
+    public MemberVO login(Map<String, String> loginMap) throws DataAccessException {
+        return memberDAO.login(loginMap);
     }
 }

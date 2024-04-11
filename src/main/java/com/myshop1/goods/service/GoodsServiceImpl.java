@@ -3,6 +3,7 @@ package com.myshop1.goods.service;
 import com.myshop1.goods.dao.GoodsDAO;
 import com.myshop1.goods.dao.GoodsDAOImpl;
 import com.myshop1.goods.vo.GoodsVO;
+import com.myshop1.goods.vo.ImageFileVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -31,6 +32,11 @@ public class GoodsServiceImpl implements GoodsService{
 
     @Override
     public Map goodsDetail(String _goods_id) throws Exception {
-        return null;
+        Map goodsMap = new HashMap();
+        GoodsVO goodsVO=goodsDAO.selectGoodsDetail(_goods_id);
+        goodsMap.put("goodsVO",goodsVO);
+        List<ImageFileVO> imageList =goodsDAO.selectGoodsDetailImage(_goods_id);
+        goodsMap.put("imageList", imageList);
+        return goodsMap;
     }
 }
