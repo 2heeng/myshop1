@@ -31,7 +31,7 @@
         <result property="zipcode" column="zipcode" />
         <result property="roadAddress" column="roadAddress" />
         <result property="jibunAddress" column="jibunAddress" />
-        <result property="namujiAddress" column="namujiAddress" />
+        <result property="detailAddress" column="detailAddress" />
         <result property="joinDate" column="joinDate" />
     </resultMap>
 
@@ -73,7 +73,7 @@
                                       zipcode,
                                       roadAddress,
                                       jibunAddress,
-                                      namujiAddress)
+                                      detailAddress)
         values(#{member_id},
                #{member_pw},
                #{member_name},
@@ -95,7 +95,7 @@
                #{zipcode},
                #{roadAddress},
                #{jibunAddress},
-               #{namujiAddress})
+               #{detailAddress})
 
 
         ]]>

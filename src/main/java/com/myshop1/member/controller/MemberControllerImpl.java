@@ -3,8 +3,6 @@ package com.myshop1.member.controller;
 import com.myshop1.member.service.MemberService;
 import com.myshop1.member.vo.MemberVO;
 import lombok.extern.log4j.Log4j2;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -25,6 +23,7 @@ import java.util.zip.DataFormatException;
 
 @Controller("memberController")
 @RequestMapping("/member")
+@Log4j2
 public class MemberControllerImpl implements MemberController{
 
 
@@ -33,7 +32,8 @@ public class MemberControllerImpl implements MemberController{
     @Autowired
     private MemberVO memberVO;
 
-    private static final Logger logger = LoggerFactory.getLogger(MemberControllerImpl.class);
+//    private static final Logger logger = LoggerFactory.getLogger(MemberControllerImpl.class);
+
 
     //로그인창 띄우기
     @RequestMapping(value = "/loginForm.do", method = RequestMethod.GET)
@@ -45,6 +45,14 @@ public class MemberControllerImpl implements MemberController{
 
     }
 
+    //회원가입창 띄우기
+    @RequestMapping(value = "/memberForm.do",method = RequestMethod.GET)
+    public ModelAndView memberForm(HttpServletRequest request,HttpServletResponse response) throws Exception{
+        ModelAndView mav = new ModelAndView();
+        String viewName = getViewName(request);
+        mav.setViewName(viewName);
+        return mav;
+    }
 
     //로그인하기
     @RequestMapping(value = "/login.do",method = RequestMethod.POST)
@@ -56,7 +64,7 @@ public class MemberControllerImpl implements MemberController{
         String pwd = request.getParameter("member_pw");
 
         memberVO = memberService.login(loginMap);
-        logger.info("memberVO : " +memberVO);
+        log.info("memberVO : " +memberVO);
 
 
         if(memberVO!= null && memberVO.getMember_id()!=null) {
@@ -77,9 +85,9 @@ public class MemberControllerImpl implements MemberController{
             mav.setViewName("/member/loginForm");
         }
 
-            return mav;
+        return mav;
 
-        }
+    }
 
 
     @Override
@@ -92,6 +100,47 @@ public class MemberControllerImpl implements MemberController{
         mav.setViewName("redirect:/main/main.do");
         return mav;
     }
+
+    @Override
+    @RequestMapping(value = "/addMember.do",method = RequestMethod.POST)
+    public ResponseEntity addMember(@ModelAttribute("memberVO") MemberVO memberVO2, HttpServletRequest request, HttpServletResponse response) throws Exception {
+
+        String message = null;
+        ResponseEntity resEntity = null;
+        HttpHeaders responseHeaders = new HttpHeaders();
+        responseHeaders.add("Content-Type", "text/html; charset=utf-8");
+        log.info("memberVO: "+memberVO2);
+try {
+    memberService.addMember(memberVO2);
+    message = "<script>";
+    message += " alert('회원 가입을 마쳤습니다.로그인창으로 이동합니다.');";
+    message += " location.href='" + request.getContextPath() + "/member/loginForm.do';";
+    message += " </script>";
+} catch(Exception e){
+    e.getStackTrace();
+    e.printStackTrace();
+    message  = "<script>";
+    message +=" alert('작업 중 오류가 발생했습니다. 다시 시도해 주세요');";
+    message += " location.href='"+request.getContextPath()+"/member/memberForm.do';";
+    message += " </script>";
+}
+        resEntity =new ResponseEntity(message, responseHeaders, HttpStatus.OK);
+        return resEntity;
+    }
+
+
+    @Override
+    @RequestMapping(value = "/overlapped.do",method = RequestMethod.POST)
+    public ResponseEntity   overlapped(@RequestParam("id") String id,HttpServletRequest request, HttpServletResponse response) throws Exception{
+        ResponseEntity resEntity = null;
+        String result = memberService.overlapped(id);
+        //log.info("중복 검사 시작");
+        log.info("중복검사 결과값: "+result);
+        resEntity =new ResponseEntity(result, HttpStatus.OK);
+        log.info("resEntity: "+resEntity);
+        return resEntity;
+    }
+
 
 
 
@@ -140,4 +189,4 @@ public class MemberControllerImpl implements MemberController{
         }
         return fileName;
     }
-}
+    }
