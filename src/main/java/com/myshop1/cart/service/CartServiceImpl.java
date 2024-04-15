@@ -2,12 +2,15 @@ package com.myshop1.cart.service;
 
 import com.myshop1.cart.dao.CartDAO;
 import com.myshop1.cart.vo.CartVO;
-import lombok.extern.log4j.Log4j2;
+import com.myshop1.goods.vo.GoodsVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 @Service("cartService")
-@Log4j2
 public class CartServiceImpl implements CartService{
 
     @Autowired
@@ -21,5 +24,23 @@ public class CartServiceImpl implements CartService{
     @Override
     public void addGoodsInCart(CartVO cartVO) throws Exception {
         cartDAO.insertGoodsInCart(cartVO);
+    }
+
+    //카트에 상품리스트와 상품정보를 저장하여 컨트롤러로 보냄
+    @Override
+    public Map<String, List> myCartList(CartVO cartVO) throws Exception {
+        Map<String, List> cartMap = new HashMap<String, List>();
+        List<CartVO> myCartList=cartDAO.selectCartList(cartVO);
+
+        //카트가 비어있다면 null을 반환
+        if(myCartList.size()==0){
+            return null;
+        }
+
+        List<GoodsVO> myGoodsList=cartDAO.selectGoodsList(myCartList);
+        cartMap.put("myCartList",myCartList);
+        cartMap.put("myGoodsList",myGoodsList);
+
+        return cartMap;
     }
 }
