@@ -43,4 +43,16 @@ public class CartServiceImpl implements CartService{
 
         return cartMap;
     }
+
+    @Override
+    public boolean modifyCartQty(CartVO cartVO) throws Exception {
+     boolean result = true;
+        cartDAO.updateCartGoodsQty(cartVO);
+        return true;
+    }
+
+    @Override
+    public void removeCartGoods(int cart_id) throws Exception {
+        cartDAO.deleteCartGoods(cart_id);
+    }
 }

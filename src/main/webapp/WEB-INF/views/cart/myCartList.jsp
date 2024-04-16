@@ -229,6 +229,7 @@
             </td>
             <td>
                 <input type="text" id="cart_goods_qty" name="cart_goods_qty" size=3 value="${cart_goods_qty}"><br>
+                <%--수량변경 버튼을 누르면 자바스크립트 modify_cart_qty함수에 상품아이디,판매가,수량을 매개변수로 전달함--%>
                 <a href="javascript:modify_cart_qty(${item.goods_id },${item.goods_sales_price*0.9 },${cnt.count-1 });" >
                     <img width=25 alt=""  src="${contextPath}/resources/image/btn_modify_qty.jpg">
                 </a>

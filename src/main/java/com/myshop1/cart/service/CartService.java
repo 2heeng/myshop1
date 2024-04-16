@@ -16,5 +16,9 @@ public interface CartService {
     //카트에 상품리스트와 상품정보를 저장하여 컨트롤러로 보냄
     public Map<String , List> myCartList(CartVO cartVO) throws Exception;
 
+    //장바구니 수량 수정
+    public boolean modifyCartQty(CartVO cartVO) throws Exception;
 
+    //장바구니 목록 삭제하기
+    public void removeCartGoods(int cart_id) throws Exception;
 }

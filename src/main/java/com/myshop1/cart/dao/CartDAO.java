@@ -20,5 +20,11 @@ public interface CartDAO {
     //카트에 담긴 상품의 정보 조회하여 리스트로 뿌리기
     public List<GoodsVO> selectGoodsList(List<CartVO> cartList) throws DataAccessException;
 
+    //장바구니 수정하기
+    public void updateCartGoodsQty(CartVO cartVO) throws DataAccessException;
+
+    //장바구니 삭제하기
+    public void deleteCartGoods(int cart_id) throws DataAccessException;
+
 
 }

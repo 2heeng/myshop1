@@ -30,6 +30,8 @@ public class CartDAOImpl implements CartDAO{
     //카트에 상품 추가
     @Override
     public void insertGoodsInCart(CartVO cartVO) throws DataAccessException {
+        int cart_id=selectMaxCartId();
+        cartVO.setCart_id(cart_id);
      sqlSession.insert("mapper.cart.insertGoodsInCart",cartVO);
     }
 
@@ -46,4 +48,25 @@ public class CartDAOImpl implements CartDAO{
         List<GoodsVO> myGoodsList=sqlSession.selectList("mapper.cart.selectGoodsList",cartList);
         return myGoodsList;
     }
+
+    //장바구니 수량 수정
+    @Override
+    public void updateCartGoodsQty(CartVO cartVO) throws DataAccessException {
+        sqlSession.update("mapper.cart.updateCartGoodsQty",cartVO);
+    }
+
+    //장바구니 삭제
+    @Override
+    public void deleteCartGoods(int cart_id) throws DataAccessException {
+        sqlSession.delete("mapper.cart.deleteCartGoods",cart_id);
+    }
+
+
+    //현재 장바구니 목록의 cart_id 최대 설정값을 구한다.
+    private int selectMaxCartId() throws DataAccessException{
+        int cart_id =sqlSession.selectOne("mapper.cart.selectMaxCartId");
+        return cart_id;
+    }
+
+
 }
