@@ -146,29 +146,30 @@
         }
 
         function fn_order_all_cart_goods(){
+            //폼 이름이 frm_order_all_cart
 //	alert("모두 주문하기");
             var order_goods_qty;
             var order_goods_id;
-            var objForm=document.frm_order_all_cart;
-            var cart_goods_qty=objForm.cart_goods_qty;
-            var h_order_each_goods_qty=objForm.h_order_each_goods_qty;
-            var checked_goods=objForm.checked_goods;
-            var length=checked_goods.length;
+            var objForm=document.frm_order_all_cart; //주문폼의 요소
+            var cart_goods_qty=objForm.cart_goods_qty; //주문폼의 수량
+            var h_order_each_goods_qty=objForm.h_order_each_goods_qty; //이건 뭐지?
+            var checked_goods=objForm.checked_goods; //주문폼에서 체크박스
+            var length=checked_goods.length; //체크박스의 길이 즉 갯수를 의미하는거 같음
 
 
             //alert(length);
-            if(length>1){
-                for(var i=0; i<length;i++){
-                    if(checked_goods[i].checked==true){
-                        order_goods_id=checked_goods[i].value;
-                        order_goods_qty=cart_goods_qty[i].value;
+            if(length>1){ //체크박스의 갯수가 2개이상이라면(선택된것과 안된것 상관업이)
+                for(var i=0; i<length;i++){ //주문리스트에 들어간 상품목록수 만큼 반복
+                    if(checked_goods[i].checked==true){  //그중에서 i번째의 상품이 체크되어있다면
+                        order_goods_id=checked_goods[i].value; //그 상품의 goods_id를 저장
+                        order_goods_qty=cart_goods_qty[i].value; //i번째의 수량숫자(즉 해당 상품의 수량)를 저장
                         cart_goods_qty[i].value="";
-                        cart_goods_qty[i].value=order_goods_id+":"+order_goods_qty;
+                        cart_goods_qty[i].value=order_goods_id+":"+order_goods_qty; //주문상품id:수량 형식으로 value값에 저장
                         //alert(select_goods_qty[i].value);
-                        console.log(cart_goods_qty[i].value);
+                        console.log(cart_goods_qty[i].value); //value값으로 주문상품의 수량이 찍힘
                     }
                 }
-            }else{
+            }else{ //주문하려는 물건이 한개 이하라면 리스트돌리지 않고 그냥 하나만 저장, 키밸류로 넣는 것은 위와 동일
                 order_goods_id=checked_goods.value;
                 order_goods_qty=cart_goods_qty.value;
                 cart_goods_qty.value=order_goods_id+":"+order_goods_qty;

@@ -17,6 +17,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
@@ -79,19 +80,22 @@ public class OrderControllerImpl implements OrderController{
         String viewName=(String)request.getAttribute("viewName");
         ModelAndView mav = new ModelAndView(viewName);
         HttpSession session=request.getSession();
-        Map cartMap=(Map)session.getAttribute("cartMap");
+        Map cartMap=(Map)session.getAttribute("cartMap"); //세션에 담긴 cartMap을 가져온다
         List myOrderList=new ArrayList<OrderVO>();
         List<GoodsVO> myGoodsList=(List<GoodsVO>)cartMap.get("myGoodsList");
         MemberVO memberVO=(MemberVO)session.getAttribute("memberInfo");
 
 
-        for(int i=0; i<cart_goods_qty.length;i++){
+        for(int i=0; i<cart_goods_qty.length;i++){ //주문하려는 상품목록의 갯수만큼 반복
             log.info("cart_goods_qty[i]: "+cart_goods_qty[i]);
-            String[] cart_goods=cart_goods_qty[i].split(":");
+            String[] cart_goods=cart_goods_qty[i].split(":"); //:를 쪼갰으니까 상품아이디,수량 이런순서로 들어감
+//            for (i=0; i<cart_goods.length;i++){
+//                log.info(cart_goods[i]);
+//            }
             for(int j = 0; j< myGoodsList.size();j++) {
                 GoodsVO goodsVO = myGoodsList.get(j);
                 int goods_id = goodsVO.getGoods_id();
-                if(goods_id==Integer.parseInt(cart_goods[0])) {
+                if(goods_id==Integer.parseInt(cart_goods[0])) { //cart_goods[0]는 상품아이디(goods_id)임
                     OrderVO _orderVO=new OrderVO();
                     String goods_title=goodsVO.getGoods_title();
                     int goods_sales_price=goodsVO.getGoods_sales_price();
