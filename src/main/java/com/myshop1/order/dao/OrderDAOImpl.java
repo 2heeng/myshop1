@@ -16,6 +16,7 @@ public class OrderDAOImpl implements OrderDAO{
     @Autowired
     private SqlSession sqlSession;
 
+    //왜있는지모르겠음,마이페이지 코드와 중복되는거 같음
     @Override
     public List<OrderVO> listMyOrderGoods(OrderVO orderVO) throws DataAccessException {
         List<OrderVO> orderGoodsList=new ArrayList<OrderVO>();
@@ -23,6 +24,7 @@ public class OrderDAOImpl implements OrderDAO{
         return orderGoodsList;
     }
 
+    //결제하기 누르면 주문하려는 값을 테이블에 저장
     @Override
     public void insertNewOrder(List<OrderVO> myOrderList) throws DataAccessException {
         int order_id=selectOrderID();
@@ -42,7 +44,14 @@ public class OrderDAOImpl implements OrderDAO{
         }
     }
 
-    //시퀀스(sequence)의 다음 값을 가져옴
+    //왜있는지모르겠음,마이페이지 코드와 중복되는거 같음
+    @Override
+    public OrderVO findMyOrder(String order_id) throws DataAccessException {
+        OrderVO orderVO=(OrderVO)sqlSession.selectOne("mapper.order.selectMyOrder",order_id);
+        return orderVO;
+    }
+
+    //Primari key 중복방지를 위하여 추가될때마다 필요한시퀀스(sequence)의 다음 값을 가져옴
     private int selectOrderID() throws DataAccessException{
         return sqlSession.selectOne("mapper.order.selectOrderID");
 

@@ -31,7 +31,8 @@ public class OrderControllerImpl implements OrderController{
     @Autowired
     private OrderVO orderVO;
 
-    //한개 상품만 구매하는 경우
+    //상품상세페이지 혹은 장바구니에서 단품으로 주문하기를 눌렀을때
+    //주문하기를 누르고 로그인이 되면 주문창을 이동한다. 주문창에 구매하고자하는 상품정보를 보낸다.
     @RequestMapping(value="/orderEachGoods.do" ,method = RequestMethod.POST)
     public ModelAndView orderEachGoods(@ModelAttribute("orderVO") OrderVO _orderVO, HttpServletRequest request, HttpServletResponse response)  throws Exception{
 
@@ -73,6 +74,9 @@ public class OrderControllerImpl implements OrderController{
         return mav;
     }
 
+    //장바구니에서 선택상품 주문하기(여러개)를 눌렀을때
+    //여기는 이미 로그인한 사람만이 장바구니에서 주문하기를 누르기 때문에 로그인여부를 확인하지 않는다.
+    //cartList.jsp에서 form정보(장바구니)를 가져와서 주문화면으로 이동한다.
     @RequestMapping(value="/orderAllCartGoods.do" ,method = RequestMethod.POST)
     public ModelAndView orderAllCartGoods(@RequestParam String[] cart_goods_qty,
                                           HttpServletRequest request, HttpServletResponse response)  throws Exception{
@@ -113,5 +117,12 @@ public class OrderControllerImpl implements OrderController{
         session.setAttribute("myOrderList", myOrderList);
         session.setAttribute("orderer", memberVO);
         return mav;
+    }
+
+
+    //주문창에서 결제하기 누르면 여기로 들어온다
+    @RequestMapping(value = "/payToOrderGoods.do",method = RequestMethod.POST)
+    public ModelAndView payToOrderGoods(@RequestParam Map<String, String> orderMap, HttpServletRequest request, HttpServletResponse response)  throws Exception{
+    return  null;
     }
 }
