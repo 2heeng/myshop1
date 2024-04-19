@@ -122,7 +122,47 @@ public class OrderControllerImpl implements OrderController{
 
     //주문창에서 결제하기 누르면 여기로 들어온다
     @RequestMapping(value = "/payToOrderGoods.do",method = RequestMethod.POST)
-    public ModelAndView payToOrderGoods(@RequestParam Map<String, String> orderMap, HttpServletRequest request, HttpServletResponse response)  throws Exception{
-    return  null;
+    public ModelAndView payToOrderGoods(@RequestParam Map<String, String> receiverMap, HttpServletRequest request, HttpServletResponse response)  throws Exception{
+
+        //다음으로 넘어갈 창의 뷰네임 설정
+        String viewName=(String)request.getAttribute("viewName");
+        ModelAndView mav = new ModelAndView(viewName);
+
+        HttpSession session=request.getSession();
+        MemberVO memberVO=(MemberVO)session.getAttribute("orderer");
+        String member_id=memberVO.getMember_id();
+        String orderer_name=memberVO.getMember_name();
+        String orderer_hp = memberVO.getHp1()+"-"+memberVO.getHp2()+"-"+memberVO.getHp3();
+        List<OrderVO> myOrderList=(List<OrderVO>)session.getAttribute("myOrderList");
+
+        for(int i=0; i<myOrderList.size();i++){
+            OrderVO orderVO=(OrderVO)myOrderList.get(i);
+            orderVO.setMember_id(member_id);
+            orderVO.setOrderer_name(orderer_name);
+            orderVO.setReceiver_name(receiverMap.get("receiver_name"));
+
+            orderVO.setReceiver_hp1(receiverMap.get("receiver_hp1"));
+            orderVO.setReceiver_hp2(receiverMap.get("receiver_hp2"));
+            orderVO.setReceiver_hp3(receiverMap.get("receiver_hp3"));
+            orderVO.setReceiver_tel1(receiverMap.get("receiver_tel1"));
+            orderVO.setReceiver_tel2(receiverMap.get("receiver_tel2"));
+            orderVO.setReceiver_tel3(receiverMap.get("receiver_tel3"));
+
+            orderVO.setDelivery_address(receiverMap.get("delivery_address"));
+            orderVO.setDelivery_message(receiverMap.get("delivery_message"));
+            orderVO.setDelivery_method(receiverMap.get("delivery_method"));
+            orderVO.setGift_wrapping(receiverMap.get("gift_wrapping"));
+            orderVO.setPay_method(receiverMap.get("pay_method"));
+            orderVO.setCard_com_name(receiverMap.get("card_com_name"));
+            orderVO.setCard_pay_month(receiverMap.get("card_pay_month"));
+            orderVO.setPay_orderer_hp_num(receiverMap.get("pay_orderer_hp_num"));
+            orderVO.setOrderer_hp(orderer_hp);
+            myOrderList.set(i, orderVO); //각 orderVO에 주문자 정보를 세팅한 후 다시 myOrderList에 저장한다.
+        }//end for
+
+        orderService.addNewOrder(myOrderList);
+        mav.addObject("myOrderInfo",receiverMap);//OrderVO로 주문결과 페이지에  주문자 정보를 표시한다.
+        mav.addObject("myOrderList", myOrderList);
+        return mav;
     }
 }

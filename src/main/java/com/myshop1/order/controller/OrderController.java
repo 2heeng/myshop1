@@ -19,7 +19,7 @@ public interface OrderController {
 
 
     //결제하기 눌렀을때
-    public ModelAndView payToOrderGoods(@RequestParam Map<String, String> orderMap, HttpServletRequest request, HttpServletResponse response)  throws Exception;
+    public ModelAndView payToOrderGoods(@RequestParam Map<String, String> receiverMap, HttpServletRequest request, HttpServletResponse response)  throws Exception;
 
 
 }

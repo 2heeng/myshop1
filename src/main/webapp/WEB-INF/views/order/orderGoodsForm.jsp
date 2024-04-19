@@ -48,6 +48,7 @@
 
     <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
     <script>
+        //주소 입력 API
         function execDaumPostcode() {
             new daum.Postcode({
                 oncomplete: function(data) {
@@ -187,20 +188,18 @@
 
         }
 
-        function fn_pay_phone(){
-
-
+        function fn_pay_phone(){ //핸드폰 결제방식을 누르면
             var e_card=document.getElementById("tr_pay_card");
             var e_phone=document.getElementById("tr_pay_phone");
-            e_card.style.visibility="hidden";
-            e_phone.style.visibility="visible";
+            e_card.style.visibility="hidden"; //카드선택창은 안보이게하고
+            e_phone.style.visibility="visible"; //핸드폰번호 입력창을 보이게 한다
         }
 
-        function fn_pay_card(){
+        function fn_pay_card(){ //카드로 결제하는 방식을 누르면
             var e_card=document.getElementById("tr_pay_card");
             var e_phone=document.getElementById("tr_pay_phone");
-            e_card.style.visibility="visible";
-            e_phone.style.visibility="hidden";
+            e_card.style.visibility="visible"; //카드선택을 보이게하고
+            e_phone.style.visibility="hidden"; //핸드폰번호 입력창을 숨긴다
         }
 
         function imagePopup(type) {
@@ -248,12 +247,14 @@
         var card_pay_month;
         var pay_orderer_hp_num;
 
+
+        //결제하기 버튼 눌렀을때 동작
         function fn_show_order_detail(){
             goods_id="";
             goods_title="";
 
             var frm=document.form_order;
-            var h_goods_id=frm.h_goods_id;
+            var h_goods_id=frm.h_goods_id; //주문화면에 있는 상품목록의 goods_id
             var h_goods_title=frm.h_goods_title;
             var h_goods_fileName=frm.h_goods_fileName;
             var r_delivery_method  =  frm.delivery_method;
@@ -265,17 +266,17 @@
             var i_receiver_name=document.getElementById("receiver_name");
 
 
-            if(h_goods_id.length <2 ||h_goods_id.length==null){
-                goods_id+=h_goods_id.value;
+            if(h_goods_id.length <2 ||h_goods_id.length==null){ //주문하는 상품이 1개라면
+                goods_id+=h_goods_id.value; //value값이라는건 OrderController에서 session에 저장한 myOrderList에서 가져온 해당 상품의 goods_id를 말함
             }else{
-                for(var i=0; i<h_goods_id.length;i++){
+                for(var i=0; i<h_goods_id.length;i++){ //여러개라면
                     goods_id+=h_goods_id[i].value+"<br>";
 
                 }
             }
 
-            if(h_goods_title.length <2 ||h_goods_title.length==null){
-                goods_title+=h_goods_title.value;
+            if(h_goods_title.length <2 ||h_goods_title.length==null){ //주문하는 상품이 1개라면
+                goods_title+=h_goods_title.value; //value값이라는건 OrderController에서 session에 저장한 myOrderList에서 가져온 해당 상품의 goods_title을 말함
             }else{
                 for(var i=0; i<h_goods_title.length;i++){
                     goods_title+=h_goods_title[i].value+"<br>";
@@ -284,7 +285,7 @@
             }
 
 
-            if(h_goods_fileName.length <2 ||h_goods_fileName.length==null){
+            if(h_goods_fileName.length <2 ||h_goods_fileName.length==null){ //위의 id와 title과 같음
                 goods_fileName+=h_goods_fileName.value;
             }else{
                 for(var i=0; i<h_goods_fileName.length;i++){
@@ -294,10 +295,10 @@
             }
 
 
-            total_order_goods_price=h_final_total_Price.value;
+            total_order_goods_price=h_final_total_Price.value; //final_order_price를 말하는데 처음에 0으로 초기화한 후 상품의 sales_price 곱하기 수량으로 계산됨.
             total_order_goods_qty=h_total_order_goods_qty.value;
 
-            for(var i=0; i<r_delivery_method.length;i++){
+            for(var i=0; i<r_delivery_method.length;i++){ //택배 방식이 총 3가지가 있는데 그중에 i번째칸이 체크되어있다면 그 value값을 배송방법으로 저장함 ex.일반택배
                 if(r_delivery_method[i].checked==true){
                     delivery_method=r_delivery_method[i].value
                     break;
@@ -307,36 +308,39 @@
             var r_gift_wrapping  =  frm.gift_wrapping;
 
 
-            for(var i=0; i<r_gift_wrapping.length;i++){
+            for(var i=0; i<r_gift_wrapping.length;i++){ //택배랑 동일한 방법, 여기는 예와 아니오 2가지 있음
                 if(r_gift_wrapping[i].checked==true){
                     gift_wrapping=r_gift_wrapping[i].value
                     break;
                 }
             }
 
-            var r_pay_method  =  frm.pay_method;
+            var r_pay_method  =  frm.pay_method; //결제방식은 총 9가지이지만 신용카드와 휴대폰결제만 구현함.
+
+            //document.getElementById는 해당 ID의 요소를 찾아서 반환
+
 
             for(var i=0; i<r_pay_method.length;i++){
                 if(r_pay_method[i].checked==true){
                     pay_method=r_pay_method[i].value
-                    if(pay_method=="신용카드"){
+                    if(pay_method=="신용카드"){ //체크한 결제방식이 신용카드라면
                         var i_card_com_name=document.getElementById("card_com_name");
                         var i_card_pay_month=document.getElementById("card_pay_month");
-                        card_com_name=i_card_com_name.value;
-                        card_pay_month=i_card_pay_month.value;
+                        card_com_name=i_card_com_name.value; //카드사 이름 저장
+                        card_pay_month=i_card_pay_month.value; //할부개월 수 저장
                         pay_method+="<Br>"+
                             "카드사:"+card_com_name+"<br>"+
-                            "할부개월수:"+card_pay_month;
+                            "할부개월수:"+card_pay_month;  //ex. "카드사:우리카드 <br> 할부개월수:3개월"을 저장함
                         pay_orderer_hp_num="해당없음";
 
-                    }else if(pay_method=="휴대폰결제"){
-                        var i_pay_order_tel1=document.getElementById("pay_order_tel1");
-                        var i_pay_order_tel2=document.getElementById("pay_order_tel2");
-                        var i_pay_order_tel3=document.getElementById("pay_order_tel3");
+                    }else if(pay_method=="휴대폰결제"){ ////체크한 결제방식이 휴대폰결제라면
+                        var i_pay_order_tel1=document.getElementById("pay_order_tel1"); //010
+                        var i_pay_order_tel2=document.getElementById("pay_order_tel2"); //1234
+                        var i_pay_order_tel3=document.getElementById("pay_order_tel3"); //5678
                         pay_orderer_hp_num=i_pay_order_tel1.value+"-"+
                             i_pay_order_tel2.value+"-"+
-                            i_pay_order_tel3.value;
-                        pay_method+="<Br>"+"결제휴대폰번호:"+pay_orderer_hp_num;
+                            i_pay_order_tel3.value; ///010-1234-5678
+                        pay_method+="<Br>"+"결제휴대폰번호:"+pay_orderer_hp_num; //결제휴대폰번호:010-1234-5678
                         card_com_name="해당없음";
                         card_pay_month="해당없음";
                     } //end if
@@ -344,14 +348,17 @@
                 }// end for
             }
 
+            //받으실분 핸드폰 번호 저장
             var i_hp1=document.getElementById("hp1");
             var i_hp2=document.getElementById("hp2");
             var i_hp3=document.getElementById("hp3");
 
+            //받으실분 유선번호 저장
             var i_tel1=document.getElementById("tel1");
             var i_tel2=document.getElementById("tel2");
             var i_tel3=document.getElementById("tel3");
 
+            //받으실분 주소 저장
             var i_zipcode=document.getElementById("zipcode");
             var i_roadAddress=document.getElementById("roadAddress");
             var i_jibunAddress=document.getElementById("jibunAddress");
@@ -362,6 +369,7 @@
 //	alert("총주문 금액:"+total_order_goods_price);
             order_goods_qty=h_order_goods_qty.value;
             //order_total_price=h_order_total_price.value;
+
 
             orderer_name=h_orderer_name.value;
             receiver_name=i_receiver_name.value;
@@ -383,6 +391,7 @@
 
             delivery_message=i_delivery_message.value;
 
+            //p로 시작하는 값들은 팝어창으로 출력할 정보들임. 쉽게말하면 결제창으로 넘어가는 정보
             var p_order_goods_id=document.getElementById("p_order_goods_id");
             var p_order_goods_title=document.getElementById("p_order_goods_title");
             var p_order_goods_qty=document.getElementById("p_order_goods_qty");
@@ -398,6 +407,7 @@
             var p_gift_wrapping=document.getElementById("p_gift_wrapping");
             var p_pay_method=document.getElementById("p_pay_method");
 
+            //결제창에 띄울 정보들에 위에 주문창에서 입력한 정보들을 넣음
             p_order_goods_id.innerHTML=goods_id;
             p_order_goods_title.innerHTML=goods_title;
             p_total_order_goods_qty.innerHTML=total_order_goods_qty+"개";
@@ -411,11 +421,15 @@
             p_delivery_message.innerHTML=delivery_message;
             p_gift_wrapping.innerHTML=gift_wrapping;
             p_pay_method.innerHTML=pay_method;
-            imagePopup('open');
+            imagePopup('open'); //팝업을 띄운다.
         }
 
+
+        //결제하기를 누르고 나타난 팝업창에서 주문,배송,결제 정보 등을 확인하면 최종 결제하기 버튼을 누른다.
+        //fn_process_pay_order함수 동작 마무리에 OrderController로 넘어간다.
         function fn_process_pay_order(){
 
+            //document.createElement 요소를 생성
             alert("최종 결제하기");
             var formObj=document.createElement("form");
             var i_receiver_name=document.createElement("input");
