@@ -112,6 +112,7 @@
                                     <c:when test="${item.delivery_state=='delivery_prepared'}">
                                         <input  type="button" onClick="fn_cancel_order('${item.order_id}')" value="주문취소"  />
                                     </c:when>
+                                    <%--배송상태가 주문취소일 경우 주문취소 버튼을 disabled로 바꾸로 alert로 '주문을 취소했습니다' 메시지 띄움--%>
                                     <c:otherwise>
                                         <input  type="button" onClick="fn_cancel_order('${item.order_id}')" value="주문취소" disabled />
                                     </c:otherwise>

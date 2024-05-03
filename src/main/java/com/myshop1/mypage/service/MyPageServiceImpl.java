@@ -20,4 +20,14 @@ public class MyPageServiceImpl implements MyPageService{
     public List<OrderVO> listMyOrderGoods(String member_id) throws Exception {
        return myPageDAO.selectMyOrderGoodsList(member_id);
     }
+
+    @Override
+    public List findMyOrderInfo(String order_id) throws Exception {
+        return myPageDAO.selectMyOrderInfo(order_id);
+    }
+
+    @Override
+    public void cancelOrder(String order_id) throws Exception {
+        myPageDAO.updateMyOrderCancel(order_id);
+    }
 }

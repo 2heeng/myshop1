@@ -18,5 +18,17 @@ public class MyPageDAOImpl implements MyPageDAO{
         return orderGoodsList;
     }
 
+    @Override
+    public List selectMyOrderInfo(String order_id) throws DataAccessException {
+        List myorderList= sqlSession.selectList("mapper.mypage.selectMyOrderInfo",order_id);
+
+        return myorderList;
+    }
+
+    @Override
+    public void updateMyOrderCancel(String order_id) throws DataAccessException {
+        sqlSession.update("mapper.mypage.updateMyOrderCancel", order_id);
+    }
+
 
 }

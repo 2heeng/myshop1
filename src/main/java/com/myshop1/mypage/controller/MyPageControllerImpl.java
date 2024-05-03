@@ -47,4 +47,33 @@ public class MyPageControllerImpl implements MyPageController{
 
         return mav;
     }
+
+    @Override
+    @RequestMapping(value="/myOrderDetail.do" ,method = RequestMethod.GET)
+    public ModelAndView myOrderDetail(@RequestParam("order_id")  String order_id,HttpServletRequest request, HttpServletResponse response)  throws Exception{
+
+        String viewName=(String)request.getAttribute("viewName");
+        ModelAndView mav = new ModelAndView(viewName);
+
+        HttpSession session=request.getSession();
+        MemberVO orderer=(MemberVO)session.getAttribute("memberInfo");
+
+        List<OrderVO> myOrderList=myPageService.findMyOrderInfo(order_id);
+        mav.addObject("orderer", orderer);
+        mav.addObject("myOrderList",myOrderList);
+
+        return mav;
+    }
+
+    @Override
+    @RequestMapping(value = "/cancelMyOrder.do",method = RequestMethod.POST)
+    public ModelAndView cancelMyOrder(@RequestParam("order_id")  String order_id,HttpServletRequest request, HttpServletResponse response)  throws Exception{
+        ModelAndView mav = new ModelAndView();
+        myPageService.cancelOrder(order_id);
+
+        //주문취소 상태를 자바스크립트로 전달
+        mav.addObject("message", "cancel_order");
+        mav.setViewName("redirect:/mypage/myPageMain.do");
+        return mav;
+    }
 }
