@@ -16,9 +16,15 @@ public interface MyPageDAO {
     //마이페이지 주문취소 클릭 시, 주문상태를 취소로 바꿈
     public void updateMyOrderCancel(String order_id) throws DataAccessException;
 
-//    public List<OrderVO> selectMyOrderHistoryList(Map dateMap) throws DataAccessException;
-//    public void updateMyInfo(Map memberMap) throws DataAccessException;
-//    public MemberVO selectMyDetailInfo(String member_id) throws DataAccessException;
+    //이전 주문내역 조회
+    public List<OrderVO> selectMyOrderHistoryList(Map dateMap) throws DataAccessException;
+
+    //회원정보관리 - 내 정보 조회
+    public MemberVO selectMyDetailInfo(String member_id) throws DataAccessException;
+
+    //회원정보관리(내상세정보) 수정된 내용으로 DB업데이트하기
+    public void updateMyInfo(Map memberMap) throws DataAccessException;
+
 
 
 }

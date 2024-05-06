@@ -14,9 +14,16 @@ public interface MyPageService {
 
     //마이페이지에서 주문취소 클릭
     public void cancelOrder(String order_id) throws Exception;
-//    public List<OrderVO> listMyOrderHistory(Map dateMap) throws Exception;
-//    public MemberVO  modifyMyInfo(Map memberMap) throws Exception;
 
-//    public MemberVO myDetailInfo(String member_id) throws Exception;
+    //마이페이지 좌측메뉴에서 주문내역 조회 클릭시 동작
+    public List<OrderVO> listMyOrderHistory(Map dateMap) throws Exception;
+
+    //회원정보관리
+    public MemberVO myDetailInfo(String member_id) throws Exception;
+
+    //회원정보관리(내상세정보) 수정된 내용으로 DB업데이트하기
+    public MemberVO  modifyMyInfo(Map memberMap) throws Exception;
+
+
 
 }
