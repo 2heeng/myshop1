@@ -15,12 +15,12 @@ public interface AdminGoodsService {
     //새상품 추가
     public int  addNewGoods(Map newGoodsMap) throws Exception;
 
+    //상품 수정
+    public void modifyGoodsInfo(Map goodsMap) throws Exception;
+    public void modifyGoodsImage(List<ImageFileVO> imageFileList) throws Exception;
 
-
-//    public Map goodsDetail(int goods_id) throws Exception;
+    public Map goodsDetail(int goods_id) throws Exception;
 //    public List goodsImageFile(int goods_id) throws Exception;
-//    public void modifyGoodsInfo(Map goodsMap) throws Exception;
-//    public void modifyGoodsImage(List<ImageFileVO> imageFileList) throws Exception;
 //    public List<OrderVO> listOrderGoods(Map condMap) throws Exception;
 //    public void modifyOrderGoods(Map orderMap) throws Exception;
 //    public void removeGoodsImage(int image_id) throws Exception;

@@ -6,6 +6,7 @@
 <c:set var="contextPath"  value="${pageContext.request.contextPath}"  />
 <c:set var="goods"  value="${goodsMap.goods}"  />
 <c:set var="imageFileList"  value="${goodsMap.imageFileList}"  />
+<%--<c:set var="goods_id" value="${param.goods_id}" />--%>
 
 <c:choose>
 <c:when test='${not empty goods.goods_status}'>
@@ -27,6 +28,7 @@ function init(){
 </c:choose>
 <script type="text/javascript">
 function fn_modify_goods(goods_id, attribute){
+	console.log(${goods.goods_id })
 	var frm_mod_goods=document.frm_mod_goods;
 	var value="";
 	if(attribute=='goods_sort'){

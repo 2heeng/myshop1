@@ -43,6 +43,7 @@
     </style>
     <script type="text/javascript">
         function add_cart(goods_id) {
+            console.log(goods_id)
             $.ajax({
                 type : "post",
                 async : false, //false인 경우 동기식으로 처리한다.

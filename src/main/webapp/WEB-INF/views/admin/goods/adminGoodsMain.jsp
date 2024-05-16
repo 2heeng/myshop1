@@ -222,6 +222,7 @@
                     </TD>
                     <TD>
                         <strong>${item.goods_writer }</strong>
+
                     </TD>
                     <TD >
                         <strong>${item.goods_publisher }</strong>
