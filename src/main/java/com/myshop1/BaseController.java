@@ -80,7 +80,7 @@ public class BaseController {
         endDate = endYear +"-"+ endMonth +"-"+endDay;
 
         if(fixedSearchPeriod == null) {
-            cal.add(cal.MONTH,-4);
+            cal.add(cal.MONTH,-4); //현재 날짜에서 4개월을 뺀다
         }else if(fixedSearchPeriod.equals("one_week")) {
             cal.add(Calendar.DAY_OF_YEAR, -7);
         }else if(fixedSearchPeriod.equals("two_week")) {

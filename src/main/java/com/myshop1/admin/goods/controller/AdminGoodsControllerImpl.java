@@ -44,7 +44,7 @@ public class AdminGoodsControllerImpl extends BaseController implements  AdminGo
         String viewName=(String)request.getAttribute("viewName");
         ModelAndView mav = new ModelAndView(viewName);
         HttpSession session=request.getSession();
-        //사이드메튜를 어드민(관리자)메뉴로 설정한다.(side.jsp)
+        //사이드메뉴를 어드민(관리자)메뉴로 설정한다.(side.jsp)
         session.setAttribute("side_menu", "admin_mode");
 
         String fixedSearchPeriod = dateMap.get("fixedSearchPeriod"); //처음엔 null
