@@ -56,6 +56,7 @@
 				<td width=500><select name="goods_sort">
 						<option value="컴퓨터와 인터넷" selected>컴퓨터와 인터넷
 						<option value="디지털 기기">디지털 기기
+						<option value="영화 DVD">영화 DVD
 					</select>
 				</td>
 			</tr>

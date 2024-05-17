@@ -106,12 +106,12 @@
 					  			      #{goods_price},
 					  			      #{goods_sales_price},
 					  			      #{goods_point},
-					  			      #{goods_published_date},
+					  			      TO_DATE(#{goods_published_date}, 'YYYY-MM-DD'),
 
 					  			      #{goods_total_page},
 					  			      #{goods_isbn },
 					  			      #{goods_delivery_price },
-					  			      #{goods_delivery_date },
+					  			      TO_DATE(#{goods_delivery_date }, 'YYYY-MM-DD'),
 					  			      #{goods_status },
 					  			      #{goods_writer_intro},
 

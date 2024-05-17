@@ -15,21 +15,22 @@ public interface AdminGoodsDAO {
 
     //새상품 추가
     public int insertNewGoods(Map newGoodsMap) throws DataAccessException;
-    //새상품 추가를 위한 이미지 추가
+    //새상품 추가를 위한 이미지 추가, 상품수정화면에서 이미지 추가
     public void insertGoodsImageFile(List fileList)  throws DataAccessException;
-
-    //상품 수정
-    public void updateGoodsInfo(Map goodsMap) throws DataAccessException;
-    //상품 이미지 수정
-    public void updateGoodsImage(List<ImageFileVO> imageFileList) throws DataAccessException;
 
     //상품 수정화면에 필요한 상품상세정보
     public GoodsVO selectGoodsDetail(int goods_id) throws DataAccessException;
     //상품 수정화면에 필요한 상품상세정보-이미지
     public List selectGoodsImageFileList(int goods_id) throws DataAccessException;
 
-//    public void deleteGoodsImage(int image_id) throws DataAccessException;
-//    public void deleteGoodsImage(List fileList) throws DataAccessException;
+    //상품 수정
+    public void updateGoodsInfo(Map goodsMap) throws DataAccessException;
+    //상품 이미지 수정
+    public void updateGoodsImage(List<ImageFileVO> imageFileList) throws DataAccessException;
+
+    public void deleteGoodsImage(int image_id) throws DataAccessException;
+    //public void deleteGoodsImage(List fileList) throws DataAccessException;
+
 //    public List<OrderVO> selectOrderGoodsList(Map condMap) throws DataAccessException;
 //    public void updateOrderGoods(Map orderMap) throws DataAccessException;
 }

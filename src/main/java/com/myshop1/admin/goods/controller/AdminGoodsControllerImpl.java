@@ -99,10 +99,13 @@ public class AdminGoodsControllerImpl extends BaseController implements  AdminGo
         Map newGoodsMap = new HashMap();
         Enumeration enu=multipartRequest.getParameterNames();
         log.info("enu: "+enu);
+
         //request로 들어오는 키와 값을 newGoodsMap에 저장
         while(enu.hasMoreElements()){
             String name=(String)enu.nextElement();
+            log.info("name: ",name);
             String value=multipartRequest.getParameter(name);
+            log.info("value: ",value);
             newGoodsMap.put(name,value);
         }
 
@@ -158,7 +161,7 @@ public class AdminGoodsControllerImpl extends BaseController implements  AdminGo
         return resEntity;
     }
 
-    //상품관리 수정화면
+    //상품관리 수정화면(상품정보 반환)
     @RequestMapping(value="/modifyGoodsForm.do" ,method={RequestMethod.GET,RequestMethod.POST})
     public ModelAndView modifyGoodsForm(@RequestParam("goods_id") int goods_id,
                                         HttpServletRequest request, HttpServletResponse response)  throws Exception {
@@ -193,4 +196,128 @@ public class AdminGoodsControllerImpl extends BaseController implements  AdminGo
         resEntity =new ResponseEntity(message, responseHeaders, HttpStatus.OK);
         return resEntity;
     }
-}
+
+
+    @Override
+    @RequestMapping(value="/modifyGoodsImageInfo.do" ,method={RequestMethod.POST})
+    public void modifyGoodsImageInfo(MultipartHttpServletRequest multipartRequest, HttpServletResponse response) throws Exception {
+
+        multipartRequest.setCharacterEncoding("utf-8");
+        response.setContentType("text/html; charset=utf-8");
+        String imageFileName=null;
+
+        Map goodsMap = new HashMap();
+        Enumeration enu=multipartRequest.getParameterNames();
+        while(enu.hasMoreElements()){
+            String name=(String)enu.nextElement();
+            String value=multipartRequest.getParameter(name);
+            goodsMap.put(name,value);
+        }
+        HttpSession session = multipartRequest.getSession();
+        MemberVO memberVO = (MemberVO) session.getAttribute("memberInfo");
+        String reg_id = memberVO.getMember_id();
+
+        List<ImageFileVO> imageFileList=null;
+        int goods_id=0;
+        int image_id=0;
+        try {
+            imageFileList =upload(multipartRequest);
+            if(imageFileList!= null && imageFileList.size()!=0) {
+                for(ImageFileVO imageFileVO : imageFileList) {
+                    goods_id = Integer.parseInt((String)goodsMap.get("goods_id"));
+                    image_id = Integer.parseInt((String)goodsMap.get("image_id"));
+                    imageFileVO.setGoods_id(goods_id);
+                    imageFileVO.setImage_id(image_id);
+                    imageFileVO.setReg_id(reg_id);
+                }
+
+                adminGoodsService.modifyGoodsImage(imageFileList);
+                //log.info(imageFileList);
+                for(ImageFileVO  imageFileVO:imageFileList) {
+                    imageFileName = imageFileVO.getFileName();
+                    File srcFile = new File(CURR_IMAGE_REPO_PATH+"\\"+"temp"+"\\"+imageFileName);
+                    File destDir = new File(CURR_IMAGE_REPO_PATH+"\\"+goods_id);
+                    FileUtils.moveFileToDirectory(srcFile, destDir,true);
+                }
+            }
+        }catch(Exception e) {
+            if(imageFileList!=null && imageFileList.size()!=0) {
+                for(ImageFileVO  imageFileVO:imageFileList) {
+                    imageFileName = imageFileVO.getFileName();
+                    File srcFile = new File(CURR_IMAGE_REPO_PATH+"\\"+"temp"+"\\"+imageFileName);
+                    srcFile.delete();
+                }
+            }
+            e.printStackTrace();
+        }
+
+    }//modifyGoodsImageInfo end
+
+
+    @Override
+    @RequestMapping(value="/removeGoodsImage.do" ,method={RequestMethod.POST})
+    public void removeGoodsImage(@RequestParam("goods_id") int goods_id,
+                                 @RequestParam("image_id") int image_id,
+                                 @RequestParam("imageFileName") String imageFileName,
+                                 HttpServletRequest request, HttpServletResponse response) throws Exception {
+        adminGoodsService.removeGoodsImage(image_id);
+//        try{
+//            File srcFile = new File(CURR_IMAGE_REPO_PATH+"\\"+goods_id+"\\"+imageFileName);
+//            srcFile.delete();
+//        }catch(Exception e) {
+//            e.printStackTrace();
+//        }
+    }
+
+    @Override
+    @RequestMapping(value = "/addNewGoodsImage.do", method = {RequestMethod.POST})
+    public void addNewGoodsImage(MultipartHttpServletRequest multipartRequest, HttpServletResponse response) throws Exception {
+
+        multipartRequest.setCharacterEncoding("utf-8");
+        response.setContentType("text/html; charset=utf-8");
+        String imageFileName=null;
+
+        Map goodsMap = new HashMap();
+        Enumeration enu=multipartRequest.getParameterNames();
+        while(enu.hasMoreElements()){
+            String name=(String)enu.nextElement();
+            String value=multipartRequest.getParameter(name);
+            goodsMap.put(name,value);
+        }
+
+        HttpSession session = multipartRequest.getSession();
+        MemberVO memberVO = (MemberVO) session.getAttribute("memberInfo");
+        String reg_id = memberVO.getMember_id();
+
+        List<ImageFileVO> imageFileList=null;
+        int goods_id=0;
+        try {
+            imageFileList =upload(multipartRequest);
+            if(imageFileList!= null && imageFileList.size()!=0) {
+                for(ImageFileVO imageFileVO : imageFileList) {
+                    goods_id = Integer.parseInt((String)goodsMap.get("goods_id"));
+                    imageFileVO.setGoods_id(goods_id);
+                    imageFileVO.setReg_id(reg_id);
+                }
+
+                adminGoodsService.addNewGoodsImage(imageFileList);
+                for(ImageFileVO  imageFileVO:imageFileList) {
+                    imageFileName = imageFileVO.getFileName();
+                    File srcFile = new File(CURR_IMAGE_REPO_PATH+"\\"+"temp"+"\\"+imageFileName);
+                    File destDir = new File(CURR_IMAGE_REPO_PATH+"\\"+goods_id);
+                    FileUtils.moveFileToDirectory(srcFile, destDir,true);
+                }
+            }
+        }catch(Exception e) {
+            if (imageFileList != null && imageFileList.size() != 0) {
+                for (ImageFileVO imageFileVO : imageFileList) {
+                    imageFileName = imageFileVO.getFileName();
+                    File srcFile = new File(CURR_IMAGE_REPO_PATH + "\\" + "temp" + "\\" + imageFileName);
+                    srcFile.delete();
+                }
+            }
+            e.printStackTrace();
+
+        }
+    }
+}//class end

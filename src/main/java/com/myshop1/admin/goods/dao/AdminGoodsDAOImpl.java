@@ -28,6 +28,19 @@ public class AdminGoodsDAOImpl implements AdminGoodsDAO {
     }
 
     @Override
+    public GoodsVO selectGoodsDetail(int goods_id) throws DataAccessException {
+        GoodsVO goodsVO = new GoodsVO();
+        goodsVO=(GoodsVO)sqlSession.selectOne("mapper.admin.goods.selectGoodsDetail",goods_id);
+        return goodsVO;
+    }
+
+    @Override
+    public List selectGoodsImageFileList(int goods_id) throws DataAccessException {
+        List imageFileVOList =(List)sqlSession.selectList("mapper.admin.goods.selectGoodsImageFileList",goods_id);
+        return imageFileVOList;
+    }
+
+    @Override
     public int insertNewGoods(Map newGoodsMap) throws DataAccessException {
         sqlSession.insert("mapper.admin.goods.insertNewGoods",newGoodsMap);
         return Integer.parseInt((String)newGoodsMap.get("goods_id"));
@@ -48,19 +61,16 @@ public class AdminGoodsDAOImpl implements AdminGoodsDAO {
 
     @Override
     public void updateGoodsImage(List<ImageFileVO> imageFileList) throws DataAccessException {
-        sqlSession.update("mapper.admin.goods.updateGoodsImage",imageFileList);
+        for(int i=0; i<imageFileList.size();i++){
+            ImageFileVO imageFileVO = imageFileList.get(i);
+            sqlSession.update("mapper.admin.goods.updateGoodsImage",imageFileVO);
+        }
+
     }
 
     @Override
-    public GoodsVO selectGoodsDetail(int goods_id) throws DataAccessException {
-        GoodsVO goodsVO = new GoodsVO();
-        goodsVO=(GoodsVO)sqlSession.selectOne("mapper.admin.goods.selectGoodsDetail",goods_id);
-        return goodsVO;
+    public void deleteGoodsImage(int image_id) throws DataAccessException {
+        sqlSession.delete("mapper.admin.goods.deleteGoodsImage",image_id);
     }
 
-    @Override
-    public List selectGoodsImageFileList(int goods_id) throws DataAccessException {
-        List imageFileVOList =(List)sqlSession.selectList("mapper.admin.goods.selectGoodsImageFileList",goods_id);
-        return imageFileVOList;
-    }
 }

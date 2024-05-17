@@ -153,7 +153,7 @@ function fn_modify_goods(goods_id, attribute){
 	                  data: formData,
 	                  type: 'post',
 	                  success: function(result){
-	                      alert("이미지를 수정했습니다!");
+	                      alert("이미지를 추가했습니다!");
 	                  }
 	          });
 	  }
@@ -209,11 +209,18 @@ function fn_modify_goods(goods_id, attribute){
 				      <c:when test="${goods.goods_sort=='컴퓨터와 인터넷' }">
 						<option value="컴퓨터와 인터넷" selected>컴퓨터와 인터넷 </option>
 				  	    <option value="디지털 기기">디지털 기기  </option>
+						<option value="영화 DVD">영화 DVD  </option>
 				  	  </c:when>
 				  	  <c:when test="${goods.goods_sort=='디지털 기기' }">
 						<option value="컴퓨터와 인터넷" >컴퓨터와 인터넷 </option>
 				  	    <option value="디지털 기기" selected>디지털 기기  </option>
+						<option value="영화 DVD">영화 DVD  </option>
 				  	  </c:when>
+						<c:when test="${goods.goods_sort=='영화 DVD' }">
+							<option value="컴퓨터와 인터넷" >컴퓨터와 인터넷 </option>
+							<option value="디지털 기기" >디지털 기기  </option>
+							<option value="영화 DVD" selected>영화 DVD  </option>
+						</c:when>
 				  	</c:choose>
 					</select>
 				</td>
