@@ -10,6 +10,8 @@
         <typeAlias type="com.myshop1.cart.vo.CartVO" alias="cartVO" />
         <typeAlias type="com.myshop1.order.vo.OrderVO" alias="orderVO" />
         <typeAlias type="com.myshop1.mypage.vo.MyPageVO" alias="mypageVO" />
-
     </typeAliases>
 </configuration>
+
+
+

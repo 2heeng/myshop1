@@ -65,7 +65,7 @@
         <result property="zipcode" column="zipcode" />
         <result property="roadAddress" column="roadAddress" />
         <result property="jibunAddress" column="jibunAddress" />
-        <result property="namujiAddress" column="namujiAddress" />
+        <result property="detailAddress" column="detailAddress" />
         <result property="joinDate" column="joinDate" />
     </resultMap>
     <select id="selectNewOrderList" resultMap="orderResult"   parameterType="java.util.HashMap"  >

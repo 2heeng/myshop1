@@ -123,8 +123,8 @@
             <if test=" jibunAddress!='' and jibunAddress!=null">
                 jibunAddress=#{jibunAddress},
             </if>
-            <if test=" namujiAddress!='' and namujiAddress!=null">
-                namujiAddress=#{namujiAddress}
+            <if test=" detailAddress!='' and detailAddress!=null">
+                detailAddress=#{detailAddress}
             </if>
         </set>
         where
