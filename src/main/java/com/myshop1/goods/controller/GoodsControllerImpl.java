@@ -3,12 +3,11 @@ package com.myshop1.goods.controller;
 import com.myshop1.BaseController;
 import com.myshop1.goods.service.GoodsService;
 import com.myshop1.goods.vo.GoodsVO;
+import lombok.extern.log4j.Log4j2;
+import net.sf.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
@@ -20,6 +19,7 @@ import java.util.Map;
 
 @Controller("goodsController")
 @RequestMapping("/goods")
+@Log4j2
 public class GoodsControllerImpl extends BaseController implements GoodsController{
 
     @Autowired
@@ -44,6 +44,41 @@ public class GoodsControllerImpl extends BaseController implements GoodsControll
 
         return mav;
 
+    }
+
+    @Override
+    @ResponseBody
+    @RequestMapping(value="/keywordSearch.do",method = RequestMethod.GET,produces = "application/text; charset=utf8")
+    public String keywordSearch(@RequestParam("keyword") String keyword, HttpServletRequest request, HttpServletResponse response) throws Exception {
+
+        response.setContentType("text/html;charset=utf-8");
+        response.setCharacterEncoding("utf-8");
+        //log.info(keyword)
+        if(keyword == null || keyword.equals(""))
+            return null ;
+
+        keyword = keyword.toUpperCase();
+        List<String> keywordList =goodsService.keywordSearch(keyword);
+
+        // 최종 완성될 JSONObject 선언(전체)
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("keyword", keywordList);
+
+        String jsonInfo = jsonObject.toString();
+        //log.info(jsonInfo)
+        return jsonInfo ;
+
+    }
+
+    @Override
+    @RequestMapping(value="/searchGoods.do" ,method = RequestMethod.GET)
+    public ModelAndView searchGoods(@RequestParam("searchWord") String searchWord, HttpServletRequest request, HttpServletResponse response) throws Exception {
+
+        String viewName=(String)request.getAttribute("viewName");
+        List<GoodsVO> goodsList=goodsService.searchGoods(searchWord);
+        ModelAndView mav = new ModelAndView(viewName);
+        mav.addObject("goodsList", goodsList);
+        return mav;
     }
 
 
