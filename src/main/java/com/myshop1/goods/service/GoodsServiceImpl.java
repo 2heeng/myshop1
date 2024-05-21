@@ -52,4 +52,13 @@ public class GoodsServiceImpl implements GoodsService{
         List<GoodsVO> goodsVOList=(ArrayList)goodsDAO.selectGoodsBySearchWord(searchWord);
         return goodsVOList;
     }
+
+    @Override
+    public Map<String, List<GoodsVO>> categoryListGoods(Map<String,String> sortMap) throws Exception {
+        Map<String,List<GoodsVO>> goodsMap = new HashMap<String,List<GoodsVO>>();
+        List<GoodsVO> goodsList=goodsDAO.selectGoodsSortList(sortMap);
+        goodsMap.put("goodsList",goodsList);
+
+        return goodsMap;
+    }
 }

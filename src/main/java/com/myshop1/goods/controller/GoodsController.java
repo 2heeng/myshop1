@@ -12,5 +12,8 @@ public interface GoodsController {
     public ModelAndView goodsDetail(@RequestParam("goods_id") String goods_id, HttpServletRequest request, HttpServletResponse response) throws Exception;
     public @ResponseBody String keywordSearch(@RequestParam("keyword") String keyword, HttpServletRequest request, HttpServletResponse response) throws Exception;
     public ModelAndView searchGoods(@RequestParam("searchWord") String searchWord,HttpServletRequest request, HttpServletResponse response) throws Exception;
+    //카테고리별 상품목록 리스트
+    public ModelAndView categoryGoods(@RequestParam("sort_option") String sortOption,
+                                      @RequestParam("goodsSort") String goodsSort,HttpServletRequest request, HttpServletResponse response) throws Exception;
 
 }

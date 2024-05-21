@@ -206,18 +206,18 @@ function fn_modify_goods(goods_id, attribute){
 				<td width=500>
 				  <select name="goods_sort">
 					<c:choose>
-				      <c:when test="${goods.goods_sort=='컴퓨터와 인터넷' }">
-						<option value="컴퓨터와 인터넷" selected>컴퓨터와 인터넷 </option>
+				      <c:when test="${goods.goods_sort=='IT/인터넷' }">
+						<option value="IT/인터넷" selected>IT/인터넷 </option>
 				  	    <option value="디지털 기기">디지털 기기  </option>
 						<option value="영화 DVD">영화 DVD  </option>
 				  	  </c:when>
 				  	  <c:when test="${goods.goods_sort=='디지털 기기' }">
-						<option value="컴퓨터와 인터넷" >컴퓨터와 인터넷 </option>
+						<option value="IT/인터넷" >IT/인터넷 </option>
 				  	    <option value="디지털 기기" selected>디지털 기기  </option>
 						<option value="영화 DVD">영화 DVD  </option>
 				  	  </c:when>
 						<c:when test="${goods.goods_sort=='영화 DVD' }">
-							<option value="컴퓨터와 인터넷" >컴퓨터와 인터넷 </option>
+							<option value="IT/인터넷" >IT/인터넷 </option>
 							<option value="디지털 기기" >디지털 기기  </option>
 							<option value="영화 DVD" selected>영화 DVD  </option>
 						</c:when>

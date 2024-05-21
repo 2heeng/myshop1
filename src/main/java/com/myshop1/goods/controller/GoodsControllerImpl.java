@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -79,6 +80,45 @@ public class GoodsControllerImpl extends BaseController implements GoodsControll
         List<GoodsVO> goodsList=goodsService.searchGoods(searchWord);
         ModelAndView mav = new ModelAndView(viewName);
         mav.addObject("goodsList", goodsList);
+        return mav;
+    }
+
+
+    @Override
+    @RequestMapping(value="/categoryGoodsList.do" ,method = {RequestMethod.GET,RequestMethod.POST})
+    public ModelAndView categoryGoods(@RequestParam("sort_option") String sort_option,
+                                      @RequestParam("category") String category,HttpServletRequest request, HttpServletResponse response) throws Exception {
+
+        log.info("sort_option: "+sort_option);
+        log.info("category: "+category);
+
+        HttpSession session;
+        ModelAndView mav = new ModelAndView();
+        String viewName = (String)request.getAttribute("viewName");
+        mav.setViewName(viewName);
+
+        session=request.getSession();
+        session.setAttribute("side_menu", "user");
+
+        Map<String,String> sortMap = new HashMap<>();
+        sortMap.put("category",category);
+        if(sort_option=="낮은 가격순"){
+            sortMap.put("sort_option","goods_price_asc");
+            sortMap.put("order","asc");
+        } else if(sort_option=="높은 가격순"){
+            sortMap.put("sort_option","goods_price_desc");
+            sortMap.put("order","desc");
+        } else if(sort_option=="가나다순"){
+            sortMap.put("sort_option","goods_title");
+            sortMap.put("order","asc");
+        } else{
+            sortMap.put("sort_option","goods_creDate");
+            sortMap.put("order","desc");
+        }
+
+        log.info(sortMap);
+        Map<String, List<GoodsVO>> goodsMap= goodsService.categoryListGoods(sortMap);
+        mav.addObject("goodsMap",goodsMap);
         return mav;
     }
 

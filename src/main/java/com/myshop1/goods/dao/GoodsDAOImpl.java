@@ -11,6 +11,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 @Repository("goodsDAO")
 @Log4j2
@@ -52,4 +53,11 @@ public class GoodsDAOImpl implements GoodsDAO{
         List<GoodsVO> goodsVOList=(ArrayList)sqlSession.selectList("mapper.goods.selectGoodsBySearchWord",searchWord);
         return goodsVOList;
     }
+
+    @Override
+    public List<GoodsVO> selectGoodsSortList(Map<String,String> sortMap) throws DataAccessException {
+        List<GoodsVO> goodsVOList = (ArrayList)sqlSession.selectList("mapper.goods.selectGoodsASCSortList",sortMap);
+        return goodsVOList;
+    }
+
 }

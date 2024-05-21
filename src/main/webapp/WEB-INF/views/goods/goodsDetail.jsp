@@ -133,8 +133,8 @@
 </head>
 <body>
 <hgroup>
-    <h1>컴퓨터와 인터넷</h1>
-    <h2>국내외 도서 &gt; 컴퓨터와 인터넷 &gt; 웹 개발</h2>
+    <h1>IT/인터넷</h1>
+    <h2>국내외 도서 &gt; IT/인터넷 &gt; 웹 개발</h2>
     <h3>${goods.goods_title }</h3>
     <h4>${goods.goods_writer} &nbsp; 저| ${goods.goods_publisher}</h4>
 </hgroup>
