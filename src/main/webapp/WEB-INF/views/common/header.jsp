@@ -9,8 +9,9 @@
 <script type="text/javascript">
     var loopSearch=true;
     function keywordSearch(){
-        if(loopSearch==false)
-            return;
+        if(loopSearch==false){
+            return; }
+
         var value=document.frmSearch.searchWord.value;
         $.ajax({
             type : "get",

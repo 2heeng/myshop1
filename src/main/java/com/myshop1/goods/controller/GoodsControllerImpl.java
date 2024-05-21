@@ -53,19 +53,20 @@ public class GoodsControllerImpl extends BaseController implements GoodsControll
 
         response.setContentType("text/html;charset=utf-8");
         response.setCharacterEncoding("utf-8");
-        //log.info(keyword)
-        if(keyword == null || keyword.equals(""))
-            return null ;
+        log.info(keyword);
+        if(keyword == null || keyword.equals("")) {
+            return null;
+        }
 
-        keyword = keyword.toUpperCase();
-        List<String> keywordList =goodsService.keywordSearch(keyword);
+        keyword = keyword.toUpperCase(); //keyword문자열을 모두 대문자로 변환
+        List<String> keywordList =goodsService.keywordSearch(keyword); //keyword가 들어간 상품제목(goods_title) 조회하여 반환
 
         // 최종 완성될 JSONObject 선언(전체)
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("keyword", keywordList);
 
         String jsonInfo = jsonObject.toString();
-        //log.info(jsonInfo)
+        log.info(jsonInfo);
         return jsonInfo ;
 
     }
