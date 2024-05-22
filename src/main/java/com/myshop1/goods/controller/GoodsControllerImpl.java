@@ -102,22 +102,24 @@ public class GoodsControllerImpl extends BaseController implements GoodsControll
 
         Map<String,String> sortMap = new HashMap<>();
         sortMap.put("category",category);
-        if(sort_option=="낮은 가격순"){
-            sortMap.put("sort_option","goods_price_asc");
-            sortMap.put("order","asc");
-        } else if(sort_option=="높은 가격순"){
-            sortMap.put("sort_option","goods_price_desc");
-            sortMap.put("order","desc");
-        } else if(sort_option=="가나다순"){
-            sortMap.put("sort_option","goods_title");
-            sortMap.put("order","asc");
+        if(sort_option.equals("낮은 가격순")){
+            sortMap.put("sort_option","low_price");
+            log.info(sortMap.get("sort_option"));
+            //sortMap.put("order","asc");
+        } else if(sort_option.equals("높은 가격순")){
+            sortMap.put("sort_option","high_price");
+            //sortMap.put("order","desc");
+        } else if(sort_option.equals("가나다순")){
+            sortMap.put("sort_option","alphabetical");
+            //sortMap.put("order","asc");
         } else{
-            sortMap.put("sort_option","goods_creDate");
-            sortMap.put("order","desc");
+            sortMap.put("sort_option","default");
+            //sortMap.put("order","desc");
         }
 
         log.info(sortMap);
         Map<String, List<GoodsVO>> goodsMap= goodsService.categoryListGoods(sortMap);
+        //log.info(goodsMap);
         mav.addObject("goodsMap",goodsMap);
         return mav;
     }

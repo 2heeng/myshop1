@@ -56,7 +56,21 @@ public class GoodsDAOImpl implements GoodsDAO{
 
     @Override
     public List<GoodsVO> selectGoodsSortList(Map<String,String> sortMap) throws DataAccessException {
-        List<GoodsVO> goodsVOList = (ArrayList)sqlSession.selectList("mapper.goods.selectGoodsASCSortList",sortMap);
+        String sortOption= sortMap.get("sort_option");
+        String category = sortMap.get("category");
+        log.info("sort_option: "+sortOption);
+        log.info("category: "+category);
+        List<GoodsVO> goodsVOList = new ArrayList<>();
+        if (sortOption=="default"){
+            goodsVOList = (ArrayList)sqlSession.selectList("mapper.goods.selectGoodsDefaultList",sortMap);
+        } else if (sortOption=="low_price"){
+            goodsVOList = (ArrayList)sqlSession.selectList("mapper.goods.selectGoodsLowList",sortMap);
+        } else if (sortOption=="high_price"){
+            goodsVOList = (ArrayList)sqlSession.selectList("mapper.goods.selectGoodsHighList",sortMap);
+        } else if (sortOption=="alphabetical"){
+            goodsVOList = (ArrayList)sqlSession.selectList("mapper.goods.selectGoodsAlphabeticalList",sortMap);
+        }
+
         return goodsVOList;
     }
 

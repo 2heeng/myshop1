@@ -13,16 +13,17 @@
     <script>
         const ShopSelector = document.querySelector("#sort_options");
 
-        // 셀렉트의 경우
-        // ShopSelector.addEventListener("change", (e) => {
-        //     ProductSortUp()
-        // });
-
         function ProductSortUp(){
             var sort_option=$('#sort_options').val();
             var category = '${param.category}';
 
-            console.log(sort_option);
+
+            <%--//console.log(sort_option);--%>
+            <%--// 선택된 값을 URL에 추가하여 새로운 URL 만들기--%>
+            <%--var newUrl = "${contextPath}/goods/categoryGoodsList.do?category="+category+"&sort_option=" + sort_option;--%>
+
+            <%--// 새로운 URL로 페이지 이동--%>
+            <%--window.location.href = newUrl;--%>
 
             $.ajax({
                 type : "post",
@@ -34,7 +35,47 @@
                 },
 
                 success : function(data, textStatus) {
-                    //alert(data);
+                    //console.log(data)
+                    var $specificElement = $(data).find(".main_book");
+                    console.log($specificElement)
+
+                    $(".main_book").html($specificElement);
+
+                    $(".title").css({
+                        'color': 'rgb(102, 102, 102)',
+                        'font-family': '"Dotum", Arial, serif',
+                        'font-size': '13px',
+                        'text-align': 'center',
+                        'vertical-align': 'middle',
+                        'margin': '0px',
+                        'padding': '2px 0px',
+                        'font-weight': 'bold'
+                    });
+
+                    $(".price").css({
+                        'color': 'rgb(102, 102, 102)',
+                        'font-family': '"Dotum", Arial, serif',
+                        'font-size': '13px',
+                        'text-align': 'center',
+                        'vertical-align': 'middle',
+                        'margin': '0px',
+                        'padding': '2px 0px',
+                    });
+
+                    $(".book a").css({
+                        'font-size': '13px',
+                        'text-align': 'center',
+                        'vertical-align': 'middle',
+                        'margin': '5px 0px 0px',
+                        'padding': '0px',
+                        'width': '188px',
+                        'height': '230px',
+                        'border-image': 'none',
+                        'border': 'currentColor',
+                        'display': 'block',
+                        'position': 'absolute',
+                        'z-index': '2'
+                    });
                 },
                 error : function(data, textStatus) {
                     alert("에러가 발생했습니다."+data);
@@ -45,24 +86,6 @@
                 }
             }); //end ajax
         }
-
-
-        // // 셀렉트의 경우
-        // ShopSelector.addEventListener("change", (e) => {
-        //     if (e.target.value == "낮은 가격순") {
-        //         ProductSortUp();
-        //     } else if (e.target.value == "높은 가격순") {
-        //         ProductSortDown();
-        //     } else if (e.target.value == "가나다순") {
-        //         ProductABC();
-        //     } else if (e.target.value == "기본정렬") {
-        //         ProductBasic();
-        //     } else {
-        //         ProductExchange();
-        //     }
-        // });
-
-
 
 
     </script>
