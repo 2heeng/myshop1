@@ -455,6 +455,7 @@
                 <td >
                     <input type="hidden" name="command"  value="modify_my_info" />
                     <input name="btn_cancel_member" type="button"  value="수정 취소">
+                    <input name="btn_modify_all" type="button"  value="수정하기" onClick="">
                 </td>
             </tr>
         </table>
