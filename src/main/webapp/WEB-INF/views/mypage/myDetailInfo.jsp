@@ -224,7 +224,158 @@
 
                 }
             }); //end ajax
+        }//end fn_modify_member_info
+
+
+
+
+
+
+        function fn_modify_member_all_info(){
+            var member_pw_value;
+            var member_gender_value;
+            var member_birth_value;
+            var member_tel_value;
+            var member_hp_value;
+            var member_email_value;
+            var member_address_value;
+
+            var frm_mod_member=document.frm_mod_member;
+
+            //비밀번호
+            member_pw_value=frm_mod_member.member_pw.value;
+
+            //성별
+            var member_gender=frm_mod_member.member_gender;
+                for(var i=0; member_gender.length;i++){
+                    if(member_gender[i].checked){
+                        member_gender_value=member_gender[i].value;
+                        break;
+                    }
+                }
+
+            //생년월일양음력
+            var member_birth_y=frm_mod_member.member_birth_y;
+            var member_birth_m=frm_mod_member.member_birth_m;
+            var member_birth_d=frm_mod_member.member_birth_d;
+            var member_birth_gn=frm_mod_member.member_birth_gn;
+
+                for(var i=0; member_birth_y.length;i++){
+                    if(member_birth_y[i].selected){
+                        value_y=member_birth_y[i].value;
+                        break;
+                    }
+                }
+                for(var i=0; member_birth_m.length;i++){
+                    if(member_birth_m[i].selected){
+                        value_m=member_birth_m[i].value;
+                        break;
+                    }
+                }
+
+                for(var i=0; member_birth_d.length;i++){
+                    if(member_birth_d[i].selected){
+                        value_d=member_birth_d[i].value;
+                        break;
+                    }
+                }
+
+                for(var i=0; member_birth_gn.length;i++){
+                    if(member_birth_gn[i].checked){
+                        value_gn=member_birth_gn[i].value;
+                        break;
+                    }
+                }
+                member_birth_value=+value_y+","+value_m+","+value_d+","+value_gn;
+
+            //유선전화번호
+            var tel1=frm_mod_member.tel1;
+            var tel2=frm_mod_member.tel2;
+            var tel3=frm_mod_member.tel3;
+
+                for(var i=0; tel1.length;i++){
+                    if(tel1[i].selected){
+                        value_tel1=tel1[i].value;
+                        break;
+                    }
+                }
+            value_tel2=tel2.value;
+            value_tel3=tel3.value;
+            member_tel_value=value_tel1+","+value_tel2+", "+value_tel3;
+
+            //무선전화번호
+            var hp1=frm_mod_member.hp1;
+            var hp2=frm_mod_member.hp2;
+            var hp3=frm_mod_member.hp3;
+            var smssts_yn=frm_mod_member.smssts_yn;
+
+                for(var i=0; hp1.length;i++){
+                    if(hp1[i].selected){
+                        value_hp1=hp1[i].value;
+                        break;
+                    }
+                }
+            value_hp2=hp2.value;
+            value_hp3=hp3.value;
+            value_smssts_yn=smssts_yn.checked;
+            member_hp_value=value_hp1+","+value_hp2+", "+value_hp3+","+value_smssts_yn;
+
+            //이메일주소
+            var email1=frm_mod_member.email1;
+            var email2=frm_mod_member.email2;
+            var emailsts_yn=frm_mod_member.emailsts_yn;
+
+            value_email1=email1.value;
+            value_email2=email2.value;
+            value_emailsts_yn=emailsts_yn.checked;
+            member_email_value=value_email1+","+value_email2+","+value_emailsts_yn;
+
+            //주소
+            var zipcode=frm_mod_member.zipcode;
+            var roadAddress=frm_mod_member.roadAddress;
+            var jibunAddress=frm_mod_member.jibunAddress;
+            var detailAddress=frm_mod_member.detailAddress;
+
+            value_zipcode=zipcode.value;
+            value_roadAddress=roadAddress.value;
+            value_jibunAddress=jibunAddress.value;
+            value_detailAddress=detailAddress.value;
+            member_address_value=value_zipcode+","+value_roadAddress+","+value_jibunAddress+","+value_detailAddress;
+
+
+            $.ajax({
+                type : "post",
+                async : false, //false인 경우 동기식으로 처리한다.
+                url : "${contextPath}/mypage/modifyMyInfoAll.do",
+                data : {
+
+                    member_pw_value : member_pw_value,
+                    member_gender_value : member_gender_value,
+                    member_birth_value : member_birth_value,
+                    member_tel_value : member_tel_value,
+                    member_hp_value : member_hp_value,
+                    member_email_value : member_email_value,
+                    member_address_value : member_address_value
+
+                },
+                success : function(data, textStatus) {
+                    if(data.trim()=='mod_success'){
+                        alert("회원 정보를 수정했습니다.");
+                    }else if(data.trim()=='failed'){
+                        alert("다시 시도해 주세요.");
+                    }
+
+                },
+                error : function(data, textStatus) {
+                    alert("에러가 발생했습니다."+data);
+                },
+                complete : function(data, textStatus) {
+                    //alert("작업을완료 했습니다");
+
+                }
+            }); //end ajax
         }
+
     </script>
 </head>
 
@@ -455,7 +606,7 @@
                 <td >
                     <input type="hidden" name="command"  value="modify_my_info" />
                     <input name="btn_cancel_member" type="button"  value="수정 취소">
-                    <input name="btn_modify_all" type="button"  value="수정하기" onClick="">
+                    <input name="btn_modify_all" type="button"  value="수정하기" onClick="fn_modify_member_all_info()">
                 </td>
             </tr>
         </table>

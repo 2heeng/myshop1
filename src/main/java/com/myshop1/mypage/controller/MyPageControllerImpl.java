@@ -196,4 +196,78 @@ public class MyPageControllerImpl extends BaseController implements MyPageContro
 
     }
 
+
+
+    @Override
+    @RequestMapping(value="/modifyMyInfoAll.do" ,method = RequestMethod.POST)
+    public ResponseEntity modifyMyInfo(@RequestParam("member_pw_value")  String member_pw_value,
+                                       @RequestParam("member_gender_value")  String member_gender_value,
+                                       @RequestParam("member_birth_value")  String member_birth_value,
+                                       @RequestParam("member_tel_value")  String member_tel_value,
+                                       @RequestParam("member_hp_value")  String member_hp_value,
+                                       @RequestParam("member_email_value")  String member_email_value,
+                                       @RequestParam("member_address_value")  String member_address_value,
+                                       HttpServletRequest request, HttpServletResponse response)  throws Exception{
+
+        Map<String,String> memberMap=new HashMap<String,String>();
+        String val1[]=null;
+        String val2[]=null;
+        String val3[]=null;
+        String val4[]=null;
+        String val5[]=null;
+        HttpSession session=request.getSession();
+        memberVO=(MemberVO)session.getAttribute("memberInfo");
+        String  member_id=memberVO.getMember_id();
+
+        //비밀번호
+        memberMap.put("member_pw",member_pw_value);
+        //성별
+        memberMap.put("member_gender",member_gender_value);
+        //생년월일양력음력
+        val1=member_birth_value.split(",");
+        memberMap.put("member_birth_y",val1[0]);
+        memberMap.put("member_birth_m",val1[1]);
+        memberMap.put("member_birth_d",val1[2]);
+        memberMap.put("member_birth_gn",val1[3]);
+        //유선전화번호
+        val2=member_tel_value.split(",");
+        memberMap.put("tel1",val2[0]);
+        memberMap.put("tel2",val2[1]);
+        memberMap.put("tel3",val2[2]);
+        //무선전화번호
+        val3=member_hp_value.split(",");
+        memberMap.put("hp1",val3[0]);
+        memberMap.put("hp2",val3[1]);
+        memberMap.put("hp3",val3[2]);
+        memberMap.put("smssts_yn", val3[3]);
+        //이메일주소
+        val4=member_email_value.split(",");
+        memberMap.put("email1",val4[0]);
+        memberMap.put("email2",val4[1]);
+        memberMap.put("emailsts_yn", val4[2]);
+        //주소
+        val5=member_address_value.split(",");
+        memberMap.put("zipcode",val5[0]);
+        memberMap.put("roadAddress",val5[1]);
+        memberMap.put("jibunAddress", val5[2]);
+        memberMap.put("detailAddress", val5[3]);
+
+        memberMap.put("member_id", member_id);
+
+        //수정된 회원 정보를 다시 세션에 저장한다
+        memberVO=(MemberVO)myPageService.modifyMyInfo(memberMap);
+        session.removeAttribute("memberInfo");
+        session.setAttribute("memberInfo", memberVO);
+
+        String message = null;
+        ResponseEntity resEntity = null;
+        HttpHeaders responseHeaders = new HttpHeaders();
+        message  = "mod_success";
+        resEntity =new ResponseEntity(message, responseHeaders, HttpStatus.OK);
+        return resEntity;
+
+
+
+    }
+
 }

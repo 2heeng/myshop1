@@ -24,8 +24,18 @@ public interface MyPageController {
     //마이페이지 좌측에서 회원정보관리 클릭시 동작
     public ModelAndView myDetailInfo(HttpServletRequest request, HttpServletResponse response)  throws Exception;
 
-    //회원정보관리(내상세정보) 수정하기
+    //회원정보관리 원하는 부분만 수정하기
     public ResponseEntity modifyMyInfo(@RequestParam("attribute")  String attribute,
                                        @RequestParam("value")  String value,
+                                       HttpServletRequest request, HttpServletResponse response)  throws Exception;
+
+    //회원정보관리(내상세정보) 한번에 수정하기
+    public ResponseEntity modifyMyInfo(@RequestParam("member_pw_value")  String member_pw_value,
+                                       @RequestParam("member_gender_value")  String member_gender_value,
+                                       @RequestParam("member_birth_value")  String member_birth_value,
+                                       @RequestParam("member_tel_value")  String member_tel_value,
+                                       @RequestParam("member_hp_value")  String member_hp_value,
+                                       @RequestParam("member_email_value")  String member_email_value,
+                                       @RequestParam("member_address_value")  String member_address_value,
                                        HttpServletRequest request, HttpServletResponse response)  throws Exception;
 }
