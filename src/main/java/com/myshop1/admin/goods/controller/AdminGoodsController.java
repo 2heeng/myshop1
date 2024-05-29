@@ -22,6 +22,25 @@ public interface AdminGoodsController {
                                           @RequestParam("mod_type") String mod_type,
                                           @RequestParam("value") String value,
                                           HttpServletRequest request, HttpServletResponse response)  throws Exception;
+
+    //상품관리 페이지에서 상품이름 클릭시 수정화면으로 이동 -> 한번에 수정반영하기
+    public ResponseEntity modifyGoodsInfoAll(@RequestParam("goods_id") String goods_id,
+                                             @RequestParam("goods_sort_value") String goods_sort_value,
+                                             @RequestParam("goods_title_value") String goods_title_value,
+                                             @RequestParam("goods_writer_value") String goods_writer_value,
+                                             @RequestParam("goods_publisher_value") String goods_publisher_value,
+                                             @RequestParam("goods_price_value") String goods_price_value,
+                                             @RequestParam("goods_sales_price_value") String goods_sales_price_value,
+                                             @RequestParam("goods_point_value") String goods_point_value,
+                                             @RequestParam("goods_published_date_value") String goods_published_date_value,
+                                             @RequestParam("goods_total_page_value") String goods_total_page_value,
+                                             @RequestParam("goods_isbn_value") String goods_isbn_value,
+                                             @RequestParam("goods_delivery_price_value") String goods_delivery_price_value,
+                                             @RequestParam("goods_delivery_date_value") String goods_delivery_date_value,
+                                             @RequestParam("goods_status_value") String goods_status_value,
+                                             HttpServletRequest request, HttpServletResponse response)  throws Exception;
+
+
     //상품수정화면에서 이미지 수정
     public void modifyGoodsImageInfo(MultipartHttpServletRequest multipartRequest, HttpServletResponse response)  throws Exception;
 

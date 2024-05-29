@@ -27,6 +27,7 @@ function init(){
 </c:when>
 </c:choose>
 <script type="text/javascript">
+
 function fn_modify_goods(goods_id, attribute){
 	console.log(${goods.goods_id })
 	var frm_mod_goods=document.frm_mod_goods;
@@ -47,8 +48,8 @@ function fn_modify_goods(goods_id, attribute){
 		value=frm_mod_goods.goods_point.value;
 	}else if(attribute=='goods_published_date'){
 		value=frm_mod_goods.goods_published_date.value;
-	}else if(attribute=='goods_page_total'){
-		value=frm_mod_goods.goods_page_total.value;
+	}else if(attribute=='goods_total_page'){
+		value=frm_mod_goods.goods_total_page.value;
 	}else if(attribute=='goods_isbn'){
 		value=frm_mod_goods.goods_isbn.value;
 	}else if(attribute=='goods_delivery_price'){
@@ -96,6 +97,87 @@ function fn_modify_goods(goods_id, attribute){
 	}); //end ajax	
 }
 
+function fn_modify_goods_all(goods_id){
+	var frm_mod_goods=document.frm_mod_goods;
+	var goods_sort_value="";
+	var goods_title_value="";
+	var goods_writer_value="";
+	var goods_publisher_value="";
+	var goods_price_value="";
+	var goods_sales_price_value="";
+	var goods_point_value="";
+	var goods_published_date_value="";
+	var goods_total_page_value="";
+	var goods_isbn_value="";
+	var goods_delivery_price_value="";
+	var goods_delivery_date_value="";
+	var goods_status_value="";
+
+	let goodsInfoMap = new Map();
+
+	goods_sort_value=frm_mod_goods.goods_sort.value;
+	goods_title_value=frm_mod_goods.goods_title.value;
+	goods_writer_value=frm_mod_goods.goods_writer.value;
+	goods_publisher_value=frm_mod_goods.goods_publisher.value;
+	goods_price_value=frm_mod_goods.goods_price.value;
+	goods_sales_price_value=frm_mod_goods.goods_sales_price.value;
+	goods_point_value=frm_mod_goods.goods_point.value;
+	goods_published_date_value=frm_mod_goods.goods_published_date.value;
+	goods_total_page_value=frm_mod_goods.goods_total_page.value;
+	goods_isbn_value=frm_mod_goods.goods_isbn.value;
+	goods_delivery_price_value=frm_mod_goods.goods_delivery_price.value;
+	goods_delivery_date_value=frm_mod_goods.goods_delivery_date.value;
+	goods_status_value=frm_mod_goods.goods_status.value;
+
+
+
+// Map 객체를 일반 객체로 변환
+	let obj = Object.fromEntries(goodsInfoMap);
+
+	$.ajax({
+		type : "post",
+		async : false, //false인 경우 동기식으로 처리한다.
+		url : "${contextPath}/admin/goods/modifyGoodsInfoAll.do",
+		data : {
+			goods_id:goods_id,
+			goods_sort_value:goods_sort_value,
+			goods_title_value:goods_title_value,
+			goods_writer_value:goods_writer_value,
+			goods_publisher_value:goods_publisher_value,
+			goods_price_value:goods_price_value,
+			goods_sales_price_value:goods_sales_price_value,
+			goods_point_value:goods_point_value,
+			goods_published_date_value:goods_published_date_value,
+			goods_total_page_value:goods_total_page_value,
+			goods_isbn_value:goods_isbn_value,
+			goods_delivery_price_value:goods_delivery_price_value,
+			goods_delivery_date_value:goods_delivery_date_value,
+			goods_status_value:goods_status_value
+		},
+		success : function(data, textStatus) {
+			if(data.trim()=='mod_success'){
+				alert("상품 정보를 수정했습니다.");
+			}else if(data.trim()=='failed'){
+				alert("다시 시도해 주세요.");
+			}
+
+		},
+		error : function(jqXHR, textStatus, errorThrown) {
+			console.error("AJAX 에러 발생:", textStatus, errorThrown); // 콘솔에 에러 정보 출력
+			alert("에러가 발생했습니다: " + textStatus + " - " + errorThrown);
+
+			// 상세한 응답 내용 확인
+			if (jqXHR.responseText) {
+				console.error("응답 텍스트:", jqXHR.responseText);
+				alert("응답 텍스트: " + jqXHR.responseText);
+			}
+		},
+		complete : function(data, textStatus) {
+			//alert("작업을완료 했습니다");
+
+		}
+	})
+}
 
 
   function readURL(input,preview) {
@@ -295,7 +377,7 @@ function fn_modify_goods(goods_id, attribute){
 				<td >상품 총 페이지수</td>
 				<td><input name="goods_total_page" type="text" size="40"  value="${goods.goods_total_page }"/></td>
 				<td>
-				 <input  type="button" value="수정반영"  onClick="fn_modify_goods('${goods.goods_id }','goods_total_page"/>
+				 <input  type="button" value="수정반영"  onClick="fn_modify_goods('${goods.goods_id }','goods_total_page')"/>
 				</td>
 
 			</tr>
@@ -349,7 +431,9 @@ function fn_modify_goods(goods_id, attribute){
 			   <br>
 			 </td>
 			</tr>
-				</table>	
+				</table>
+				<input type="button" value="전체 수정반영" onclick="fn_modify_goods_all('${goods.goods_id }')" />
+
 			</DIV>
 			<DIV class="tab_content" id="tab2">
 				<h4>책목차</h4>

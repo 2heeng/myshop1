@@ -12,6 +12,7 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -196,6 +197,54 @@ public class AdminGoodsControllerImpl extends BaseController implements  AdminGo
         resEntity =new ResponseEntity(message, responseHeaders, HttpStatus.OK);
         return resEntity;
     }
+
+    @Override
+    @RequestMapping(value="/modifyGoodsInfoAll.do" ,method={RequestMethod.POST})
+    public ResponseEntity modifyGoodsInfoAll(@RequestParam("goods_id") String goods_id,
+                                          @RequestParam("goods_sort_value") String goods_sort_value,
+                                          @RequestParam("goods_title_value") String goods_title_value,
+                                          @RequestParam("goods_writer_value") String goods_writer_value,
+                                          @RequestParam("goods_publisher_value") String goods_publisher_value,
+                                          @RequestParam("goods_price_value") String goods_price_value,
+                                          @RequestParam("goods_sales_price_value") String goods_sales_price_value,
+                                          @RequestParam("goods_point_value") String goods_point_value,
+                                          @RequestParam("goods_published_date_value") String goods_published_date_value,
+                                          @RequestParam("goods_total_page_value") String goods_total_page_value,
+                                          @RequestParam("goods_isbn_value") String goods_isbn_value,
+                                          @RequestParam("goods_delivery_price_value") String goods_delivery_price_value,
+                                          @RequestParam("goods_delivery_date_value") String goods_delivery_date_value,
+                                          @RequestParam("goods_status_value") String goods_status_value,
+                                          HttpServletRequest request, HttpServletResponse response)  throws Exception {
+
+        Map<String,String> goodsMap=new HashMap<String,String>();
+        goodsMap.put("goods_id",goods_id);
+        log.info(goods_id);
+
+        goodsMap.put("goods_sort",goods_sort_value);
+        goodsMap.put("goods_title",goods_title_value);
+        goodsMap.put("goods_writer",goods_writer_value);
+        goodsMap.put("goods_publisher",goods_publisher_value);
+        goodsMap.put("goods_price",goods_price_value);
+        goodsMap.put("goods_sales_price",goods_sales_price_value);
+        goodsMap.put("goods_point",goods_point_value);
+        goodsMap.put("goods_published_date",goods_published_date_value);
+        goodsMap.put("goods_total_page",goods_total_page_value);
+        goodsMap.put("goods_isbn",goods_isbn_value);
+        goodsMap.put("goods_delivery_price",goods_delivery_price_value);
+        goodsMap.put("goods_delivery_date",goods_delivery_date_value);
+        goodsMap.put("goods_status",goods_status_value);
+
+        adminGoodsService.modifyGoodsInfo(goodsMap);
+
+        String message = null;
+        ResponseEntity resEntity = null;
+        HttpHeaders responseHeaders = new HttpHeaders();
+        message  = "mod_success";
+        resEntity =new ResponseEntity(message, responseHeaders, HttpStatus.OK);
+        return resEntity;
+    }
+
+
 
 
     @Override

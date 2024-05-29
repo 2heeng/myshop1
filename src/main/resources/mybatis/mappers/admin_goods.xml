@@ -231,7 +231,7 @@
                 goods_price=#{goods_price},
             </if>
             <if test=" goods_published_date!='' and goods_published_date!=null">
-                goods_published_date=#{goods_published_date},
+                goods_published_date=TO_DATE(#{goods_published_date},'YYYY-MM-DD'),
             </if>
             <if test=" goods_sales_price!='' and goods_sales_price!=null">
                 goods_sales_price=#{goods_sales_price},
@@ -239,8 +239,8 @@
             <if test=" goods_point!='' and goods_point!=null">
                 goods_point=#{goods_point},
             </if>
-            <if test=" goods_page_total!='' and goods_page_total!=null">
-                goods_page_total=#{goods_page_total},
+            <if test=" goods_total_page!='' and goods_total_page!=null">
+                goods_total_page=#{goods_total_page},
             </if>
             <if test=" goods_isbn!='' and goods_isbn!=null">
                 goods_isbn=#{goods_isbn},
@@ -249,7 +249,7 @@
                 goods_delivery_price=#{goods_delivery_price},
             </if>
             <if test=" goods_delivery_date!='' and goods_delivery_date!=null">
-                goods_delivery_date=#{goods_delivery_date},
+                goods_delivery_date=TO_DATE(#{goods_delivery_date},'YYYY-MM-DD'),
             </if>
             <if test=" goods_status!='' and goods_status!=null">
                 goods_status=#{goods_status},
