@@ -306,49 +306,49 @@ function fn_modify_goods_all(goods_id){
 				  	</c:choose>
 					</select>
 				</td>
-				<td >
+				<%--<td >
 				 <input  type="button" value="수정반영"  onClick="fn_modify_goods('${goods.goods_id }','goods_sort')"/>
-				</td>
+				</td>--%>
 			</tr>
 			<tr >
 				<td >상품이름</td>
 				<td><input name="goods_title" type="text" size="40"  value="${goods.goods_title }"/></td>
-				<td>
+				<%--<td>
 				 <input  type="button" value="수정반영"  onClick="fn_modify_goods('${goods.goods_id }','goods_title')"/>
-				</td>
+				</td>--%>
 			</tr>
 			
 			<tr>
 				<td >저자</td>
 				<td><input name="goods_writer" type="text" size="40" value="${goods.goods_writer }" /></td>
-								<td>
+				<%--<td>
 				 <input  type="button" value="수정반영"  onClick="fn_modify_goods('${goods.goods_id }','goods_writer')"/>
-				</td>
+				</td>--%>
 				
 			</tr>
 			<tr>
 				<td >출판사</td>
 				<td><input name="goods_publisher" type="text" size="40" value="${goods.goods_publisher }" /></td>
-			     <td>
+			    <%-- <td>
 				  <input  type="button" value="수정반영"  onClick="fn_modify_goods('${goods.goods_id }','goods_publisher')"/>
-				</td>
+				</td>--%>
 				
 			</tr>
 			<tr>
 				<td >상품정가</td>
 				<td><input name="goods_price" type="text" size="40" value="${goods.goods_price }" /></td>
-				<td>
+				<%--<td>
 				 <input  type="button" value="수정반영"  onClick="fn_modify_goods('${goods.goods_id }','goods_price')"/>
-				</td>
+				</td>--%>
 				
 			</tr>
 			
 			<tr>
 				<td >상품판매가격</td>
 				<td><input name="goods_sales_price" type="text" size="40" value="${goods.goods_sales_price }" /></td>
-				<td>
+				<%--<td>
 				 <input  type="button" value="수정반영"  onClick="fn_modify_goods('${goods.goods_id }','goods_sales_price')"/>
-				</td>
+				</td>--%>
 				
 			</tr>
 			
@@ -356,9 +356,9 @@ function fn_modify_goods_all(goods_id){
 			<tr>
 				<td >상품 구매 포인트</td>
 				<td><input name="goods_point" type="text" size="40" value="${goods.goods_point }" /></td>
-				<td>
+				<%--<td>
 				 <input  type="button" value="수정반영"  onClick="fn_modify_goods('${goods.goods_id }','goods_point')"/>
-				</td>
+				</td>--%>
 
 			</tr>
 
@@ -367,35 +367,35 @@ function fn_modify_goods_all(goods_id){
 				<td>
 				  <input  name="goods_published_date"  type="date"  value="${goods.goods_published_date }" />
 				</td>
-				<td>
+				<%--<td>
 				 <input  type="button" value="수정반영"  onClick="fn_modify_goods('${goods.goods_id }','goods_published_date')"/>
-				</td>
+				</td>--%>
 
 			</tr>
 			
 			<tr>
 				<td >상품 총 페이지수</td>
 				<td><input name="goods_total_page" type="text" size="40"  value="${goods.goods_total_page }"/></td>
-				<td>
+				<%--<td>
 				 <input  type="button" value="수정반영"  onClick="fn_modify_goods('${goods.goods_id }','goods_total_page')"/>
-				</td>
+				</td>--%>
 
 			</tr>
 			
 			<tr>
 				<td >ISBN</td>
 				<td><input name="goods_isbn" type="text" size="40" value="${goods.goods_isbn }" /></td>
-				<td>
+				<%--<td>
 				 <input  type="button" value="수정반영"  onClick="fn_modify_goods('${goods.goods_id }','goods_isbn')"/>
-				</td>
+				</td>--%>
 
 			</tr>
 			<tr>
 				<td >상품 배송비</td>
 				<td><input name="goods_delivery_price" type="text" size="40"  value="${goods.goods_delivery_price }"/></td>
-				<td>
+				<%--<td>
 				 <input  type="button" value="수정반영"  onClick="fn_modify_goods('${goods.goods_id }','goods_delivery_price')"/>
-				</td>
+				</td>--%>
 
 			</tr>
 			<tr>
@@ -403,9 +403,9 @@ function fn_modify_goods_all(goods_id){
 				<td>
 				  <input name="goods_delivery_date" type="date"  value="${goods.goods_delivery_date }" />
 				  </td>
-				<td>
+				<%--<td>
 				 <input  type="button" value="수정반영"  onClick="fn_modify_goods('${goods.goods_id }','goods_delivery_date')"/>
-				</td>
+				</td>--%>
 
 			</tr>
 			
@@ -422,9 +422,9 @@ function fn_modify_goods_all(goods_id){
 				</select>
 				<input  type="hidden" name="h_goods_status" value="${goods.goods_status }"/>
 				</td>
-				<td>
+				<%--<td>
 				 <input  type="button" value="수정반영"  onClick="fn_modify_goods('${goods.goods_id }','goods_status')"/>
-				</td>
+				</td>--%>
 			</tr>
 			<tr>
 			 <td colspan=3>

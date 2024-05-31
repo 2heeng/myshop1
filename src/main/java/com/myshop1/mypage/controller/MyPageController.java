@@ -29,7 +29,7 @@ public interface MyPageController {
                                        @RequestParam("value")  String value,
                                        HttpServletRequest request, HttpServletResponse response)  throws Exception;
 
-    //회원정보관리(내상세정보) 한번에 수정하기
+    //회원정보관리(내상세정보) 일괄수정하기
     public ResponseEntity modifyMyInfo(@RequestParam("member_pw_value")  String member_pw_value,
                                        @RequestParam("member_gender_value")  String member_gender_value,
                                        @RequestParam("member_birth_value")  String member_birth_value,

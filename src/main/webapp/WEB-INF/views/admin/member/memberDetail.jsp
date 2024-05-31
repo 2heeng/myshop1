@@ -433,27 +433,27 @@
                 <td>
                     <input name="member_id" type="text" size="20" value="${member_info.member_id }"  disabled/>
                 </td>
-                <td>
+                <%--<td>
                     <input type="button" value="수정하기" disabled onClick="fn_modify_member_info('${member_info.member_id }','member_name')" />
-                </td>
+                </td>--%>
             </tr>
             <tr class="dot_line">
                 <td class="fixed_join">비밀번호</td>
                 <td>
                     <input name="member_pw" type="password" size="20" value="${member_info.member_pw }" />
                 </td>
-                <td>
+               <%-- <td>
                     <input type="button" value="수정하기" onClick="fn_modify_member_info('${member_info.member_id }','member_pw')" />
-                </td>
+                </td>--%>
             </tr>
             <tr class="dot_line">
                 <td class="fixed_join">이름</td>
                 <td>
                     <input name="member_name" type="text" size="20" value="${member_info.member_name }"  disabled />
                 </td>
-                <td>
+                <%--<td>
                     <input type="button" value="수정하기" disabled onClick="fn_modify_member_info('${member_info.member_id }','member_name')" />
-                </td>
+                </td>--%>
             </tr>
             <tr class="dot_line">
                 <td class="fixed_join">성별</td>
@@ -471,9 +471,9 @@
                         </c:otherwise>
                     </c:choose>
                 </td>
-                <td>
+               <%-- <td>
                     <input type="button" value="수정하기" onClick="fn_modify_member_info('${member_info.member_id }','member_gender')" />
-                </td>
+                </td>--%>
             </tr>
             <tr class="dot_line">
                 <td class="fixed_join">법정생년월일</td>
@@ -530,9 +530,9 @@
                         </c:otherwise>
                     </c:choose>
                 </td>
-                <td>
+                <%--<td>
                     <input type="button" value="수정하기" onClick="fn_modify_member_info('${member_info.member_id }','member_birth')" />
-                </td>
+                </td>--%>
             </tr>
             <tr class="dot_line">
                 <td class="fixed_join">전화번호</td>
@@ -567,9 +567,9 @@
                     - <input type="text" size=4  name="tel2" value="${member_info.tel2 }">
                     - <input type="text" size=4  name="tel3" value="${member_info.tel3 }">
                 </td>
-                <td>
+                <%--<td>
                     <input type="button" value="수정하기" onClick="fn_modify_member_info('${member_info.member_id }','tel')" />
-                </td>
+                </td>--%>
             </tr>
             <tr class="dot_line">
                 <td class="fixed_join">휴대폰번호</td>
@@ -594,9 +594,9 @@
                         </c:otherwise>
                     </c:choose>
                 </td>
-                <td>
+                <%--<td>
                     <input type="button" value="수정하기" onClick="fn_modify_member_info('${member_info.member_id }','hp')" />
-                </td>
+                </td>--%>
             </tr>
             <tr class="dot_line">
                 <td class="fixed_join">이메일(e-mail)</td>
@@ -625,9 +625,9 @@
                         </c:otherwise>
                     </c:choose>
                 </td>
-                <td>
+               <%-- <td>
                     <input type="button" value="수정하기" onClick="fn_modify_member_info('${member_info.member_id }','email')" />
-                </td>
+                </td>--%>
             </tr>
             <tr class="dot_line">
                 <td class="fixed_join">주소</td>
@@ -641,9 +641,9 @@
                         <span id="guide" style="color:#999"></span>
                     </p>
                 </td>
-                <td>
+                <%--<td>
                     <input type="button" value="수정하기" onClick="fn_modify_member_info('${member_info.member_id }','address')" />
-                </td>
+                </td>--%>
             </tr>
             </tbody>
         </table>

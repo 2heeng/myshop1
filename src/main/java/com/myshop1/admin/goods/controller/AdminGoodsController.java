@@ -23,7 +23,7 @@ public interface AdminGoodsController {
                                           @RequestParam("value") String value,
                                           HttpServletRequest request, HttpServletResponse response)  throws Exception;
 
-    //상품관리 페이지에서 상품이름 클릭시 수정화면으로 이동 -> 한번에 수정반영하기
+    //상품관리 페이지에서 상품이름 클릭시 수정화면으로 이동 -> 일괄 수정
     public ResponseEntity modifyGoodsInfoAll(@RequestParam("goods_id") String goods_id,
                                              @RequestParam("goods_sort_value") String goods_sort_value,
                                              @RequestParam("goods_title_value") String goods_title_value,
