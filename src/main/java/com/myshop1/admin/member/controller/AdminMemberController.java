@@ -15,6 +15,16 @@ public interface AdminMemberController {
     public ModelAndView memberDetail(HttpServletRequest request, HttpServletResponse response)  throws Exception;
     //회원정보 수정하기
     public void modifyMemberInfo(HttpServletRequest request, HttpServletResponse response)  throws Exception;
+    //회원정보 일괄수정하기
+    public void modifyMemberInfoAll(@RequestParam("member_id") String member_id,
+                                    @RequestParam("member_pw_value")  String member_pw_value,
+                                    @RequestParam("member_gender_value")  String member_gender_value,
+                                    @RequestParam("member_birth_value")  String member_birth_value,
+                                    @RequestParam("member_tel_value")  String member_tel_value,
+                                    @RequestParam("member_hp_value")  String member_hp_value,
+                                    @RequestParam("member_email_value")  String member_email_value,
+                                    @RequestParam("member_address_value")  String member_address_value,
+                                    HttpServletRequest request, HttpServletResponse response) throws Exception;
     //회원 탈퇴 처리
     public ModelAndView deleteMember(HttpServletRequest request, HttpServletResponse response)  throws Exception;
 
