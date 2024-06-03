@@ -7,6 +7,8 @@
 }
 body {
 	background-position: top; margin: 0px; padding: 0px; color: rgb(102, 102, 102); font-family: "Dotum", Arial,serif; font-size: 1em; background-image: url("../imgs/body_back.gif"); background-repeat: repeat-x; background-color: rgb(255, 255, 255);
+	width: 100%;
+	height: 100%;
 }
 img {
 	border: currentColor; border-image: none;
@@ -28,6 +30,7 @@ a:hover {
 }
 header {
 	margin-top: 20px;
+	width: 100%;
 }
 header #logo {
 	margin-left: 10px; float: left;
