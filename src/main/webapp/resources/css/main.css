@@ -23,11 +23,20 @@ a:hover {
 	clear: both;
 }
 #outer_wrap {
-	margin: 0px auto; padding: 0px; width: 1100px;
+	margin: 0px auto; padding: 0px; width: 100%; /*전체화면 가로폭 조절을 위하여 width 설정*/
 }
 #wrap {
-	margin: 0px auto; padding: 0px; width: 995px; float: left;
+	margin: 0px auto; padding: 0px; width: 100%; float: left; /*전체화면 가로폭 조절을 위하여 width 설정*/
 }
+/*
+#quickMenu {
+	position: fixed;
+	bottom: 0;
+	right: 0;
+	z-index: 9999; !* 기존 요소들 위에 퀵메뉴가 나타나도록 설정 *!
+} !*quickMenu 우측하단에 고정*!*/
+
+
 header {
 	margin-top: 20px;
 	width: 100%;
@@ -96,8 +105,9 @@ aside #banner {
 	background-position: left; padding: 0px 0px 0px 7px; line-height: 1.5em; background-image: url("../imgs/notice_li.gif"); background-repeat: no-repeat;
 }
 article {
-	margin: 20px 0px 0px 15px; width: 775px; float: right;
-	position: relative
+	width: 70%;
+	margin: 0 auto;
+	position: relative;
 }
 
 .link {
@@ -107,6 +117,7 @@ article {
 article #ad_main_banner {
 	margin: 10px 0px;
 }
+
 article #ad_sub_banner {
 	margin: 10px 0px;
 }

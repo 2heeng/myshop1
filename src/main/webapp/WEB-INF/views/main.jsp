@@ -10,9 +10,9 @@
 
 <div id="ad_main_banner">
     <ul class="bjqs">
-        <li><img width="775" height="145" src="${contextPath}/resources/image/main_banner01.jpg"></li>
-        <li><img width="775" height="145" src="${contextPath}/resources/image/main_banner02.jpg"></li>
-        <li><img width="775" height="145" src="${contextPath}/resources/image/main_banner03.jpg"></li>
+        <li><img width="100%" height="145" src="${contextPath}/resources/image/main_banner01.jpg"></li>
+        <li><img width="100%" height="145" src="${contextPath}/resources/image/main_banner02.jpg"></li>
+        <li><img width="100%" height="145" src="${contextPath}/resources/image/main_banner03.jpg"></li>
     </ul>
 </div>
 
@@ -44,7 +44,7 @@
 </div>
 <div class="clear"></div>
 <div id="ad_sub_banner">
-    <img width="770" height="117" src="${contextPath}/resources/image/sub_banner01.jpg">
+    <img width="100%" height="117" src="${contextPath}/resources/image/sub_banner01.jpg">
 </div>
 <div class="main_book" >
     <c:set  var="goods_count" value="0" />
@@ -73,7 +73,7 @@
 
 <div class="clear"></div>
 <div id="ad_sub_banner">
-    <img width="770" height="117" src="${contextPath}/resources/image/sub_banner02.jpg">
+    <img width="100%" height="117" src="${contextPath}/resources/image/sub_banner02.jpg">
 </div>
 
 

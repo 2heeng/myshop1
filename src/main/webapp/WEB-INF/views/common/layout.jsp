@@ -19,7 +19,7 @@
         // 슬라이드
         $(document).ready(function() {
             $('#ad_main_banner').bjqs({
-                'width' : 775,
+                'width' : 1332.09,
                 'height' : 145,
                 'showMarkers' : true,
                 'showControls' : false,
@@ -54,8 +54,12 @@
         <footer>
             <tiles:insertAttribute name="footer" />
         </footer>
+        <div id="quickMenu">
+            <tiles:insertAttribute name="quickMenu" />
+        </div>
+
     </div>
-    <tiles:insertAttribute name="quickMenu" />
+
 </div>
 </body>
 </html>
