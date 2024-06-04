@@ -83,13 +83,13 @@
 </div>
 
 
-<div id="banner">
-    <a href="#"><img width="190" height="362" src="${contextPath}/resources/image/side_banner1.jpg"></a>
-</div>
-<div id="banner">
-    <a href="#"><img width="190" height="104" src="${contextPath}/resources/image/call_center_logo.jpg"></a>
-</div>
-<div id="banner">
-    <a href="#"><img width="190" height="69" src="${contextPath}/resources/image/QnA_logo.jpg"></a>
-</div>
+<%--<div id="banner">--%>
+<%--    <a href="#"><img width="190" height="362" src="${contextPath}/resources/image/side_banner1.jpg"></a>--%>
+<%--</div>--%>
+<%--<div id="banner">--%>
+<%--    <a href="#"><img width="190" height="104" src="${contextPath}/resources/image/call_center_logo.jpg"></a>--%>
+<%--</div>--%>
+<%--<div id="banner">--%>
+<%--    <a href="#"><img width="190" height="69" src="${contextPath}/resources/image/QnA_logo.jpg"></a>--%>
+<%--</div>--%>
 </html>

@@ -33,7 +33,10 @@ a:hover {
 
 header {
 	margin-top: 20px;
+	height: 100px;
 	width: 100%;
+	position: fixed;
+	background-color: #cacaff;
 }
 header #logo {
 	margin-left: 10px; float: left;
@@ -60,7 +63,7 @@ header #search .btn1 {
 	border: 1px solid rgb(51, 102, 153); border-image: none; width: 55px; height: 28px; color: rgb(255, 255, 255); margin-left: 2px; background-color: rgb(51, 102, 153);
 }
 aside {
-	width: 205px; float: left;
+	width: 205px; float: left; position: fixed; top: 100px;
 }
 nav {
 	margin: 25px 0px 0px 10px; font-family: "NanumGothic", Serif; font-size: 0.8em;
@@ -102,6 +105,7 @@ article {
 	width: 70%;
 	margin: 0 auto;
 	position: relative;
+	padding-top: 120px;
 }
 
 .link {
@@ -110,6 +114,7 @@ article {
 
 article #ad_main_banner {
 	margin: 10px 0px;
+
 }
 
 article #ad_sub_banner {
