@@ -1,3 +1,4 @@
+/*
 (function($){
 
   var settings = {
@@ -160,4 +161,4 @@
 
   }
 
-})(jQuery);
+})(jQuery);*/
