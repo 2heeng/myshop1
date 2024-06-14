@@ -68,24 +68,51 @@
 
 
     }
+
+    /*UP 클릭시 상단으로 이동*/
+    const $topBtn = document.querySelector("#goTop");
+
+    $topBtn.onclick = (event) => {
+        event.preventDefault();
+        window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    /*DOWN 클릭시 하단으로 이동*/
+    $("#goBottom a").click(function(){
+        $('html, body').scrollTop( $(document).height() );});
+
+
+    // $(document).ready(function() {
+    //     $('a[href=#bottom]').click(function(){
+    //         $('html, body').animate({ scrollTop: $(document).height()},800);
+    //     });
+    // });
+
+    // // const $bottomBtn = document.querySelector(".goBottom");
+
+
+    // $bottomBtn.onclick = (event) => {
+    //     event.preventDefault();
+    //     window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
+    // };
 </script>
 
 <body>
 <div id="sticky" >
-    <ul>
-        <li><a href="#">
-            <img	width="24" height="24" src="${contextPath}/resources/image/facebook_icon.png">
-            페이스북
-        </a></li>
-        <li><a href="#">
-            <img width="24" height="24" src="${contextPath}/resources/image/twitter_icon.png">
-            트위터
-        </a></li>
-        <li><a href="#">
-            <img	width="24" height="24" src="${contextPath}/resources/image/rss_icon.png">
-            RSS 피드
-        </a></li>
-    </ul>
+<%--    <ul>--%>
+<%--        <li><a href="#">--%>
+<%--            <img	width="24" height="24" src="${contextPath}/resources/image/facebook_icon.png">--%>
+<%--            페이스북--%>
+<%--        </a></li>--%>
+<%--        <li><a href="#">--%>
+<%--            <img width="24" height="24" src="${contextPath}/resources/image/twitter_icon.png">--%>
+<%--            트위터--%>
+<%--        </a></li>--%>
+<%--        <li><a href="#">--%>
+<%--            <img	width="24" height="24" src="${contextPath}/resources/image/rss_icon.png">--%>
+<%--            RSS 피드--%>
+<%--        </a></li>--%>
+<%--    </ul>--%>
     <div class="recent">
         <h3>최근 본 상품</h3>
         <ul>
@@ -118,7 +145,7 @@
         </ul>
         </form>
     </div>
-    <div>
+    <div class="recentBtn">
         <c:choose>
             <c:when test="${ empty quickGoodsList }">
                 <h5>  &nbsp; &nbsp; &nbsp; &nbsp;  0/0  &nbsp; </h5>
@@ -127,6 +154,10 @@
                 <h5><a  href='javascript:fn_show_previous_goods();'> 이전 </a> &nbsp;  <span id="cur_goods_num">1</span>/${quickGoodsListNum}  &nbsp; <a href='javascript:fn_show_next_goods();'> 다음 </a> </h5>
             </c:otherwise>
         </c:choose>
+    </div>
+    <div id="scrollBtn">
+        <div id="goTop"><a href="#top">UP</a></div>
+        <div id="goBottom"><a href="#bottom">&nbsp;DOWN</a></div>
     </div>
 </div>
 </body>

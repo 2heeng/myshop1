@@ -9,6 +9,7 @@
     <link href="${contextPath}/resources/css/main.css" rel="stylesheet" type="text/css" media="screen">
     <link href="${contextPath}/resources/css/basic-jquery-slider.css" rel="stylesheet" type="text/css" media="screen">
     <link href="${contextPath}/resources/css/mobile.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&family=Nanum+Gothic&display=swap" rel="stylesheet">
     <script src="${contextPath}/resources/jquery/jquery-1.6.2.min.js" type="text/javascript"></script>
     <script src="${contextPath}/resources/jquery/jquery.easing.1.3.js" type="text/javascript"></script>
     <script src="${contextPath}/resources/jquery/stickysidebar.jquery.js" type="text/javascript"></script>
@@ -39,10 +40,11 @@
 </head>
 <body>
 <div id="outer_wrap">
+    <header>
+        <tiles:insertAttribute name="header" />
+    </header>
     <div id="wrap">
-        <header>
-            <tiles:insertAttribute name="header" />
-        </header>
+
         <div class="clear"></div>
         <aside>
             <tiles:insertAttribute name="side" />
@@ -51,15 +53,15 @@
             <tiles:insertAttribute name="body" />
         </article>
         <div class="clear"></div>
-        <footer>
-            <tiles:insertAttribute name="footer" />
-        </footer>
         <div id="quickMenu">
             <tiles:insertAttribute name="quickMenu" />
         </div>
-
     </div>
-
+    <div id="ftwrap">
+    <footer>
+        <tiles:insertAttribute name="footer" />
+    </footer>
+    </div>
 </div>
 </body>
 </html>

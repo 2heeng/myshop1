@@ -69,18 +69,18 @@
     </ul>
 </nav>
 <div class="clear"></div>
-<div id="banner">
-    <a href="#"><img width="190" height="163" src="${contextPath}/resources/image/n-pay.jpg"> </a>
-</div>
-<DIV id="notice">
-    <H2>공지사항</H2>
-    <UL>
+<%--<div id="banner">--%>
+<%--    <a href="#"><img width="190" height="163" src="${contextPath}/resources/image/n-pay.jpg"> </a>--%>
+<%--</div>--%>
+<%--<DIV id="notice">--%>
+<%--    <H2>공지사항</H2>--%>
+<%--    <UL>--%>
 
-        <c:forEach  var="i" begin="1" end="5" step="1">
-            <li><a href="#">공지사항입니다.${ i}</a></li>
-        </c:forEach>
-    </ul>
-</div>
+<%--        <c:forEach  var="i" begin="1" end="5" step="1">--%>
+<%--            <li><a href="#">공지사항입니다.${ i}</a></li>--%>
+<%--        </c:forEach>--%>
+<%--    </ul>--%>
+<%--</div>--%>
 
 
 <%--<div id="banner">--%>
