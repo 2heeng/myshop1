@@ -98,21 +98,7 @@
 </script>
 
 <body>
-<div id="sticky" >
-<%--    <ul>--%>
-<%--        <li><a href="#">--%>
-<%--            <img	width="24" height="24" src="${contextPath}/resources/image/facebook_icon.png">--%>
-<%--            페이스북--%>
-<%--        </a></li>--%>
-<%--        <li><a href="#">--%>
-<%--            <img width="24" height="24" src="${contextPath}/resources/image/twitter_icon.png">--%>
-<%--            트위터--%>
-<%--        </a></li>--%>
-<%--        <li><a href="#">--%>
-<%--            <img	width="24" height="24" src="${contextPath}/resources/image/rss_icon.png">--%>
-<%--            RSS 피드--%>
-<%--        </a></li>--%>
-<%--    </ul>--%>
+<div id="quickMenu">
     <div class="recent">
         <h3>최근 본 상품</h3>
         <ul>
@@ -156,8 +142,16 @@
         </c:choose>
     </div>
     <div id="scrollBtn">
-        <div id="goTop"><a href="#top">UP</a></div>
-        <div id="goBottom"><a href="#bottom">&nbsp;DOWN</a></div>
+        <div id="goTop">
+            <a href="#top">
+            <img width="24" height="24" src="${contextPath}/resources/image/free-icon-up-arrows-7037081.png">
+             </a>
+        </div>
+        <div id="goBottom">
+            <a href="#bottom">
+            <img width="24" height="24" src="${contextPath}/resources/image/free-icon-down-arrows-7037071.png">
+            </a>
+        </div>
     </div>
 </div>
 </body>

@@ -7,6 +7,11 @@
 <c:set var="contextPath"  value="${pageContext.request.contextPath}"  />
 
 <nav>
+    <div id="logo">
+        <a href="${contextPath}/main/main.do">
+            <img width="176" height="80" alt="booktopia" src="${contextPath}/resources/image/Booktopia_Logo.jpg">
+        </a>
+    </div>
     <ul>
         <c:choose>
             <c:when test="${side_menu=='admin_mode' }">

@@ -17,7 +17,7 @@
 
 
     <definition name="/main/main" extends="baseLayout">
-        <put-attribute name="title" value="타이틀 메인페이지"></put-attribute>
+        <put-attribute name="title" value="아름드리"></put-attribute>
         <put-attribute name="body" value="/WEB-INF/views/main.jsp"></put-attribute>
     </definition>
 
