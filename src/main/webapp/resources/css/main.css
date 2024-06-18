@@ -6,7 +6,7 @@
 	margin: 0px; padding: 0px; vertical-align: middle;
 }
 body {
-	background-position: top; margin: 0px; padding: 0px; color: rgb(102, 102, 102); font-size: 1em; background-image: url("../imgs/body_back.gif"); background-repeat: repeat-x; background-color: rgb(255, 255, 255);
+	background-position: top; margin: 0px; padding: 0px; color: black; font-size: 1em; background-image: url("../imgs/body_back.gif"); background-repeat: repeat-x; background-color: rgb(255, 255, 255);
 	width: 100%;
 	height: 100%;
 	font-family: Arial, malgun gothic, 맑은고딕, NanumGothic, dotum, 돋움, sans-serif;
@@ -18,7 +18,10 @@ a {
 	color: black; text-decoration: none;
 }
 a:hover {
-	color: rgb(255, 102, 0); text-decoration: none;
+	color: #dadada; text-decoration: none;
+}
+b {
+	font-weight: bold;
 }
 .clear {
 	clear: both;
@@ -33,7 +36,7 @@ a:hover {
 
 /*header*/
 header {
-	height: 100px;
+	height: 55px;
 	width: 100%;
 	position: fixed;
 	background-color: #ffffff;
@@ -64,10 +67,10 @@ header #search .main_input {
 	padding: 0px 5px; border: 2px solid black; border-image: none; width: 200px; height: 19px;
 }
 aside {
-	width: 205px; float: left; position: fixed; top: 100px;
+	width: 275px; height: 100%; float: left; position: fixed; top: 55px; left: 0px;
 }
 nav {
-	margin: 25px 0px 0px 10px; font-family: "NanumGothic", Serif; font-size: 0.8em;
+	width: 220px; margin: 50px 0px 0px 50px; font-family: "NanumGothic", Serif; font-size: 0.8em;
 }
 nav ul {
 	list-style: none;
@@ -102,13 +105,17 @@ aside #banner {
 #notice ul li {
 	background-position: left; padding: 0px 0px 0px 7px; line-height: 1.5em; background-image: url("../imgs/notice_li.gif"); background-repeat: no-repeat;
 }
+
+/*main body*/
 article {
 	width: 70%;
-	margin: 0 auto;
+	margin-left: 250px;
 	position: relative;
+
+}
+#mainContent {
 	padding-top: 100px;
 }
-
 .link {
 	width: 188px; height: 230px; display: block; position: absolute; z-index: 2;
 }

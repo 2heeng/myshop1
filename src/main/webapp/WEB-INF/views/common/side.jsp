@@ -47,28 +47,20 @@
                 </li>
             </c:when>
             <c:otherwise>
-                <li>
-                    <h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;국내외 도서</h3>
-                    <ul>
-                        <li><a href="${contextPath}/goods/categoryGoodsList.do?category=IT/인터넷&sort_option=">IT/인터넷</a></li>
-                        <li><a href="${contextPath}/goods/categoryGoodsList.do?category=영화 DVD&sort_option=">영화 DVD</a></li>
-                        <li><a href="#">대학교재</a></li>
-                        <li><a href="#">자기계발</a></li>
-                        <li><a href="#">자연과학/공학</a></li>
-                        <li><a href="#">역사/인문학</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;음반</h3>
-                    <ul>
-                        <li><a href="#">가요</a></li>
-                        <li><a href="#">록</a></li>
-                        <li><a href="#">클래식</a></li>
-                        <li><a href="#">뉴에이지</a></li>
-                        <li><a href="#">재즈</a></li>
-                        <li><a href="#">기타</a></li>
-                    </ul>
-                </li>
+                    <li><a href="#"><b>SUMMER ITEM</b></a></li>
+                    <li><a href="#"><b>NEW 5%</b></a></li>
+                    <li><a href="#"><b>AREUMDREE BEST</b></a></li>
+                    <li></li>
+                    <li><a href="${contextPath}/goods/categoryGoodsList.do?category=IT/인터넷&sort_option=">IT/인터넷</a></li>
+                    <li><a href="${contextPath}/goods/categoryGoodsList.do?category=영화 DVD&sort_option=">영화 DVD</a></li>
+                    <li></li>
+                    <li><a href="#">CLOTHES</a></li>
+                    <li><a href="#">WALKING</a></li>
+                    <li><a href="#">LIVING</a></li>
+                    <li><a href="#">TOY</a></li>
+                    <li><a href="#">ACC</a></li>
+                    <li></li>
+                    <li>COMMUNITY</li>
             </c:otherwise>
         </c:choose>
     </ul>

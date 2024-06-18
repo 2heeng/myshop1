@@ -72,11 +72,6 @@
 <div id="head_banner">
     여기는 배너입니다.여기 중앙에 아름드리 로고가 들어갈겁니다.
 </div>
-<%--<div id="logo">--%>
-<%--    <a href="${contextPath}/main/main.do">--%>
-<%--        <img width="176" height="80" alt="booktopia" src="${contextPath}/resources/image/Booktopia_Logo.jpg">--%>
-<%--    </a>--%>
-<%--</div>--%>
 <div id="head_link">
     <ul>
         <c:choose>
