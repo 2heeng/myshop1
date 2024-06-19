@@ -16,6 +16,7 @@
     <script src="${contextPath}/resources/jquery/basic-jquery-slider.js" type="text/javascript"></script>
     <script src="${contextPath}/resources/jquery/tabs.js" type="text/javascript"></script>
     <script src="${contextPath}/resources/jquery/carousel.js" type="text/javascript"></script>
+    <script src="${contextPath}/resources/jquery/mainslide.js" type="text/javascript"></script>
     <script>
         // 슬라이드
         $(document).ready(function() {

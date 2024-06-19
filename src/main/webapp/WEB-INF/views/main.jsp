@@ -17,13 +17,16 @@
 <%--</div>--%>
 
 <div id="mainContent">
-    <div class="main_slide">
-        
+    <div class="main_slider">
+        <img class="main_slide" src="${contextPath}/resources/image/mainsample1.jpg" style="display: block;">
+        <img class="main_slide" src="${contextPath}/resources/image/mainsample2.jpg">
+        <img class="main_slide" src="${contextPath}/resources/image/mainsample3.jpg">
+        <img class="main_slide" src="${contextPath}/resources/image/mainsample4.jpg">
+        <img class="main_slide" src="${contextPath}/resources/image/mainsample5.jpg">
     </div>
-
 <div class="main_book">
     <c:set  var="goods_count" value="0" />
-    <h3>베스트셀러</h3>
+    <h3>BEST</h3>
     <c:forEach var="item" items="${goodsMap.bestseller }">
         <c:set  var="goods_count" value="${goods_count+1 }" />
         <div class="book">
@@ -52,7 +55,7 @@
 </div>
 <div class="main_book" >
     <c:set  var="goods_count" value="0" />
-    <h3>새로 출판된 책</h3>
+    <h3>NEW</h3>
     <c:forEach var="item" items="${goodsMap.newbook }" >
         <c:set  var="goods_count" value="${goods_count+1 }" />
         <div class="book">
