@@ -17,7 +17,7 @@ import java.util.Iterator;
 import java.util.List;
 
 public class BaseController {
-    private static final String CURR_IMAGE_REPO_PATH = "C:\\shopping\\file_repo";
+    private static final String CURR_IMAGE_REPO_PATH = "E:\\data\\file_repo";
 
     protected List<ImageFileVO> upload(MultipartHttpServletRequest multipartRequest) throws Exception{
         List<ImageFileVO> fileList= new ArrayList<ImageFileVO>();
