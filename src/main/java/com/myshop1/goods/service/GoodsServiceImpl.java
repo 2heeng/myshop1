@@ -23,8 +23,8 @@ public class GoodsServiceImpl implements GoodsService{
         Map<String,List<GoodsVO>> goodsMap = new HashMap<String,List<GoodsVO>>();
         List<GoodsVO> goodsList=goodsDAO.selectGoodsList("best");
         goodsMap.put("best",goodsList);
-        goodsList=goodsDAO.selectGoodsList("new");
-        goodsMap.put("new",goodsList);
+        goodsList=goodsDAO.selectGoodsList("newgoods");
+        goodsMap.put("newgoods",goodsList);
 
         goodsList=goodsDAO.selectGoodsList("steady");
         goodsMap.put("steady",goodsList);

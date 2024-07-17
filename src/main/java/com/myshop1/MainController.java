@@ -2,6 +2,7 @@ package com.myshop1;
 
 import com.myshop1.goods.service.GoodsService;
 import com.myshop1.goods.vo.GoodsVO;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,6 +15,7 @@ import javax.servlet.http.HttpSession;
 import java.util.List;
 import java.util.Map;
 
+@Log4j2
 @Controller("mainController")
 public class MainController extends BaseController{
 
@@ -26,6 +28,8 @@ public class MainController extends BaseController{
         ModelAndView mav = new ModelAndView();
         String viewName = (String)request.getAttribute("viewName");
         mav.setViewName(viewName);
+
+        log.info("여기는 메인컨트롤러 입니다.");
 
         session=request.getSession();
         session.setAttribute("side_menu", "user");

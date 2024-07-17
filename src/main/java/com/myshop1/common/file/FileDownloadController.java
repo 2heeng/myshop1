@@ -1,19 +1,24 @@
 package com.myshop1.common.file;
 
+import lombok.extern.log4j.Log4j2;
 import net.coobird.thumbnailator.Thumbnails;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.imageio.ImageIO;
 import javax.servlet.http.HttpServletResponse;
+import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.IOException;
 import java.io.OutputStream;
 
+@Log4j2
 @Controller
 public class FileDownloadController {
 
-    private static String CURR_IMAGE_REPO_PATH = "C:\\shopping\\file_repo";
+    private static String CURR_IMAGE_REPO_PATH = "E:\\data\\file_repo";
 
     @RequestMapping("/download")
     protected void download(@RequestParam("fileName") String fileName,
@@ -54,4 +59,5 @@ public class FileDownloadController {
         out.write(buffer);
         out.close();
     }
+    
 }
