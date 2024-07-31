@@ -9,7 +9,8 @@
 <nav>
     <div id="logo">
         <a href="${contextPath}/main/main.do">
-            <img width="176" height="80" alt="booktopia" src="${contextPath}/resources/image/Booktopia_Logo.jpg">
+            <img width="176" height="25" alt="areumdree" src="${contextPath}/resources/image/areumdree_logo2.jpg">
+            <br>
         </a>
     </div>
     <ul>
@@ -47,9 +48,9 @@
                 </li>
             </c:when>
             <c:otherwise>
-                    <li><a href="#"><b>SUMMER ITEM</b></a></li>
-                    <li><a href="#"><b>NEW 5%</b></a></li>
-                    <li><a href="#"><b>AREUMDREE BEST</b></a></li>
+                    <li><a href="#"><b>🏝️SUMMER ITEM🏖️🔅</b></a></li>
+                    <li><a href="#"><b>NEW 5%💟</b></a></li>
+                    <li><a href="#"><b>AREUMDREE BEST👍</b></a></li>
                     <li></li>
                     <li><a href="${contextPath}/goods/categoryGoodsList.do?category=IT/인터넷&sort_option=">IT/인터넷</a></li>
                     <li><a href="${contextPath}/goods/categoryGoodsList.do?category=영화 DVD&sort_option=">영화 DVD</a></li>

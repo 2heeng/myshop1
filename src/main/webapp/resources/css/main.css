@@ -69,6 +69,10 @@ header #search .main_input {
 aside {
 	width: 275px; height: 100%; float: left; position: fixed; top: 55px; left: 20px;
 }
+#logo a img {
+	margin-left: 5px;
+	margin-bottom: 40px;
+}
 nav {
 	width: 220px; margin: 50px 0px 0px 50px; font-family: "NanumGothic", Serif; font-size: 0.8em;
 }
