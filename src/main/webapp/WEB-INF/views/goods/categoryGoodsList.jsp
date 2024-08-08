@@ -36,10 +36,10 @@
 
                 success : function(data, textStatus) {
                     //console.log(data)
-                    var $specificElement = $(data).find(".main_book");
+                    var $specificElement = $(data).find(".main_shop");
                     console.log($specificElement)
 
-                    $(".main_book").html($specificElement);
+                    $(".main_shop").html($specificElement);
 
                     $(".title").css({
                         'color': 'rgb(102, 102, 102)',
@@ -109,7 +109,7 @@
     <h1>${param.category}</h1>
 
 
-    <div class="main_book">
+    <div class="main_shop">
         <c:set var="goods_count" value="0"/>
         <%--    <h3>IT/인터넷</h3>--%>
         <c:forEach var="item" items="${goodsMap.goodsList }">

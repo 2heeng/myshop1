@@ -21,19 +21,19 @@
         <img class="main_slide" src="${contextPath}/resources/image/mainbannerposter1.jpg" style="display: block;">
         <img class="main_slide" src="${contextPath}/resources/image/mainbannerposter2.jpg">
         <img class="main_slide" src="${contextPath}/resources/image/mainbannerposter3.jpg">
-        <img class="main_slide" src="${contextPath}/resources/image/mainsample4.jpg">
-        <img class="main_slide" src="${contextPath}/resources/image/mainsample5.jpg">
+<%--        <img class="main_slide" src="${contextPath}/resources/image/mainsample4.jpg">--%>
+<%--        <img class="main_slide" src="${contextPath}/resources/image/mainsample5.jpg">--%>
     </div>
-<div class="main_book">
+<div class="main_shop">
     <c:set  var="goods_count" value="0" />
     <h3>BEST</h3>
     <c:forEach var="item" items="${goodsMap.best}">
         <c:set  var="goods_count" value="${goods_count+1 }" />
-        <div class="book">
+        <div class="maingoods">
             <a href="${contextPath}/goods/goodsDetail.do?goods_id=${item.goods_id }">
                 <img class="link"  src="${contextPath}/resources/image/1px.gif">
             </a>
-            <img width="121" height="154"
+            <img
                  src="${contextPath}/thumbnails.do?goods_id=${item.goods_id}&fileName=${item.goods_fileName}">
 
             <div class="title">${item.goods_title }</div>
@@ -43,26 +43,26 @@
             </div>
         </div>
         <c:if test="${goods_count==15   }">
-            <div class="book">
+            <div class="maingoods">
                 <font size=20> <a href="#">more</a></font>
             </div>
         </c:if>
     </c:forEach>
 </div>
 <div class="clear"></div>
-<div id="ad_sub_banner">
-    <img width="100%" height="117" src="${contextPath}/resources/image/sub_banner01.jpg">
-</div>
-<div class="main_book" >
+<%--<div id="ad_sub_banner">--%>
+<%--    <img width="100%" height="117" src="${contextPath}/resources/image/sub_banner01.jpg">--%>
+<%--</div>--%>
+<div class="main_shop" >
     <c:set  var="goods_count" value="0" />
     <h3>NEW</h3>
     <c:forEach var="item" items="${goodsMap.newgoods}" >
         <c:set  var="goods_count" value="${goods_count+1 }" />
-        <div class="book">
+        <div class="maingoods">
             <a href="${contextPath}/goods/goodsDetail.do?goods_id=${item.goods_id }">
                 <img class="link"  src="${contextPath}/resources/image/1px.gif">
             </a>
-            <img width="121" height="154"
+            <img
                  src="${contextPath}/thumbnails.do?goods_id=${item.goods_id}&fileName=${item.goods_fileName}">
             <div class="title">${item.goods_title }</div>
             <div class="price">
@@ -71,7 +71,7 @@
             </div>
         </div>
         <c:if test="${goods_count==15   }">
-            <div class="book">
+            <div class="maingoods">
                 <font size=20> <a href="#">more</a></font>
             </div>
         </c:if>
@@ -79,21 +79,21 @@
 </div>
 
 <div class="clear"></div>
-<div id="ad_sub_banner">
-    <img width="100%" height="117" src="${contextPath}/resources/image/sub_banner02.jpg">
-</div>
+<%--<div id="ad_sub_banner">--%>
+<%--    <img width="100%" height="117" src="${contextPath}/resources/image/sub_banner02.jpg">--%>
+<%--</div>--%>
 
 
-<div class="main_book" >
+<div class="main_shop" >
     <c:set  var="goods_count" value="0" />
-    <h3>스테디셀러</h3>
+    <h3>summer</h3>
     <c:forEach var="item" items="${goodsMap.steady}" >
         <c:set  var="goods_count" value="${goods_count+1 }" />
-        <div class="book">
+        <div class="maingoods">
             <a href="${contextPath}/goods/goodsDetail.do?goods_id=${item.goods_id }">
                 <img class="link"  src="${contextPath}/resources/image/1px.gif">
             </a>
-            <img width="121" height="154"
+            <img
                  src="${contextPath}/thumbnails.do?goods_id=${item.goods_id}&fileName=${item.goods_fileName}">
             <div class="title">${item.goods_title }</div>
             <div class="price">
@@ -102,7 +102,7 @@
             </div>
         </div>
         <c:if test="${goods_count==15   }">
-            <div class="book">
+            <div class="maingoods">
                 <font size=20> <a href="#">more</a></font>
             </div>
         </c:if>
