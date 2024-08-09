@@ -55,11 +55,11 @@
                     <li><a href="${contextPath}/goods/categoryGoodsList.do?category=IT/인터넷&sort_option=">IT/인터넷</a></li>
                     <li><a href="${contextPath}/goods/categoryGoodsList.do?category=영화 DVD&sort_option=">영화 DVD</a></li>
                     <li></li>
-                    <li><a href="#">CLOTHES</a></li>
-                    <li><a href="#">WALKING</a></li>
-                    <li><a href="#">LIVING</a></li>
-                    <li><a href="#">TOY</a></li>
-                    <li><a href="#">ACC</a></li>
+                    <li><a href="${contextPath}/goods/categoryGoodsList.do?goods_sort=clothes&sort_option=">CLOTHES</a></li>
+                    <li><a href="${contextPath}/goods/categoryGoodsList.do?goods_sort=walking&sort_option=">WALKING</a></li>
+                    <li><a href="${contextPath}/goods/categoryGoodsList.do?goods_sort=living&sort_option=">LIVING</a></li>
+                    <li><a href="${contextPath}/goods/categoryGoodsList.do?goods_sort=toy&sort_option=">TOY</a></li>
+                    <li><a href="${contextPath}/goods/categoryGoodsList.do?goods_sort=acc&sort_option=">ACC</a></li>
                     <li></li>
                     <li>COMMUNITY</li>
             </c:otherwise>

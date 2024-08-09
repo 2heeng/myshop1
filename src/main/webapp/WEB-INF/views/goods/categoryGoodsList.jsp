@@ -15,7 +15,7 @@
 
         function ProductSortUp(){
             var sort_option=$('#sort_options').val();
-            var category = '${param.category}';
+            var category = '${param.goods_sort}';
 
 
             <%--//console.log(sort_option);--%>
@@ -114,11 +114,11 @@
         <%--    <h3>IT/인터넷</h3>--%>
         <c:forEach var="item" items="${goodsMap.goodsList }">
             <c:set var="goods_count" value="${goods_count+1 }"/>
-            <div class="book">
+            <div class="maingoods">
                 <a href="${contextPath}/goods/goodsDetail.do?goods_id=${item.goods_id }">
                     <img class="link" src="${contextPath}/resources/image/1px.gif">
                 </a>
-                <img width="121" height="154"
+                <img
                      src="${contextPath}/thumbnails.do?goods_id=${item.goods_id}&fileName=${item.goods_fileName}">
 
                 <div class="title">${item.goods_title }</div>
@@ -128,7 +128,7 @@
                 </div>
             </div>
             <c:if test="${goods_count==15   }">
-                <div class="book">
+                <div class="maingoods">
                     <font size=20> <a href="#">more</a></font>
                 </div>
             </c:if>
