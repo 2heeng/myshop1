@@ -46,7 +46,7 @@ header {
 	z-index: 9999;
 }
 header #head_banner {
-	background-color: #EBEBF6; width: 100%; height: 25px;
+	background-color: #f3eee2; width: 100%; height: 25px;
 }
 /*header #logo {*/
 /*	margin-left: 10px; float: left;*/
@@ -87,6 +87,12 @@ nav ul li {
 }
 nav ul li a {
 	display: block;
+}
+nav ul li p {
+	font-weight: bold;
+}
+.iconBtn {
+	display: inline-block;
 }
 nav ul li h3 {
 	background-position: top; padding: 5px 20px; border-radius: 20px; border: 1px solid rgb(204, 204, 204); border-image: none; text-transform: capitalize; font-size: 14px; background-image: url("../imgs/nav_back.jpg"); background-repeat: repeat-x; background-color: rgb(229, 229, 229);

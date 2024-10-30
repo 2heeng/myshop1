@@ -9,7 +9,7 @@
 <nav>
     <div id="logo">
         <a href="${contextPath}/main/main.do">
-            <img width="176" height="25" alt="areumdree" src="${contextPath}/resources/image/areumdree_logo2.jpg">
+            <img width="180" height="43" alt="areumdree" src="${contextPath}/resources/image/areumdree_3dlogo-1.jpg">
             <br>
         </a>
     </div>
@@ -62,6 +62,19 @@
                     <li><a href="${contextPath}/goods/categoryGoodsList.do?goods_sort=acc&sort_option=">ACC</a></li>
                     <li></li>
                     <li>COMMUNITY</li>
+                    <li>고객센터</li>
+                    <li></li>
+                    <li>
+                        <a class="iconBtn" href="https://www.instagram.com/areum_miji/"><img height="18px" src="${contextPath}/resources/image/free-icon-instagram-747393.png"></a>
+                        <a class="iconBtn" href="https://github.com/2heeng"><img height="18px" src="${contextPath}/resources/image/free-icon-commit-git-8207279.png"></a>
+                    </li>
+                    <li></li>
+                    <li><hr/></li>
+                    <li>
+                        <p>02-2021-0525</p>
+                        <p>areumduri@gmail.com</p>
+                        <p>10:00 a.m. ~ 06:00 p.m.</p>
+                    </li>
             </c:otherwise>
         </c:choose>
     </ul>
