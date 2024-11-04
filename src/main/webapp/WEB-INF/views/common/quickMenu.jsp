@@ -68,18 +68,27 @@
 
 
     }
+    document.addEventListener("DOMContentLoaded", function() {
+        /*UP 클릭시 상단으로 이동*/
+        const $topBtn = document.querySelector("#goTop");
 
-    /*UP 클릭시 상단으로 이동*/
-    const $topBtn = document.querySelector("#goTop");
+        $topBtn.onclick = (event) => {
+            event.preventDefault();
+            //console.log("top버튼작동함");
+            window.scrollTo({top: 0, behavior: "smooth"});
+        }
 
-    $topBtn.onclick = (event) => {
-        event.preventDefault();
-        window.scrollTo({ top: 0, behavior: "smooth" });
-    }
+        /*DOWN 클릭시 하단으로 이동*/
+        const $bottomBtn = document.querySelector("#goBottom");
 
-    /*DOWN 클릭시 하단으로 이동*/
-    $("#goBottom a").click(function(){
-        $('html, body').scrollTop( $(document).height() );});
+        $bottomBtn.onclick = (event) => {
+            event.preventDefault();
+            console.log("Current scroll position:", window.scrollY);
+            window.scrollTo({top: document.documentElement.scrollHeight, behavior: "smooth"});
+        };
+    });
+    // $("#goBottom a").click(function(){
+    //     $('html, body').scrollTop( $(document).height() );});
 
 
     // $(document).ready(function() {

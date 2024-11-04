@@ -70,7 +70,7 @@
 </script>
 <body>
 <div id="head_banner">
-    여기는 배너입니다.여기 중앙에 아름드리 로고가 들어갈겁니다.
+    <img alt="ardr" src="${contextPath}/resources/image/ardr_logo.png">
 </div>
 <div id="head_link">
     <ul>

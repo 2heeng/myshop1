@@ -9,7 +9,7 @@
 <nav>
     <div id="logo">
         <a href="${contextPath}/main/main.do">
-            <img width="180" height="43" alt="areumdree" src="${contextPath}/resources/image/areumdree_3dlogo-1.jpg">
+            <img width="190" height="55" alt="areumdree" src="${contextPath}/resources/image/areumdree_3dlogo-1.jpg">
             <br>
         </a>
     </div>

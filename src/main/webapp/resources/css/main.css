@@ -46,7 +46,10 @@ header {
 	z-index: 9999;
 }
 header #head_banner {
-	background-color: #f3eee2; width: 100%; height: 25px;
+	background-color: #EAEAEA; width: 100%; height: 30px;
+}
+header #head_banner img {
+	width: 100%; height: 32px;
 }
 /*header #logo {*/
 /*	margin-left: 10px; float: left;*/
