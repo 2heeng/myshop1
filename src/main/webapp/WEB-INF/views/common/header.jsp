@@ -70,7 +70,7 @@
 </script>
 <body>
 <div id="head_banner">
-    <img alt="ardr" src="${contextPath}/resources/image/ardr_logo.png">
+    <img alt="ardr" src="${contextPath}/resources/image/ardr1903_30.png">
 </div>
 <div id="head_link">
     <ul>
