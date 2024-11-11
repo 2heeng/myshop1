@@ -13,7 +13,9 @@ public interface GoodsController {
     public @ResponseBody String keywordSearch(@RequestParam("keyword") String keyword, HttpServletRequest request, HttpServletResponse response) throws Exception;
     public ModelAndView searchGoods(@RequestParam("searchWord") String searchWord,HttpServletRequest request, HttpServletResponse response) throws Exception;
     //카테고리별 상품목록 리스트
-    public ModelAndView categoryGoods(@RequestParam("sort_option") String sortOption,
-                                      @RequestParam("goodsSort") String goodsSort,HttpServletRequest request, HttpServletResponse response) throws Exception;
-
+    public ModelAndView categoryGoods(@RequestParam("goods_sort") String goods_sort,
+                                      @RequestParam("sort_option") String sort_option,HttpServletRequest request, HttpServletResponse response) throws Exception;
+    //이벤트카테고리 상품목록 리스트
+    public ModelAndView eventCategoryGoods(@RequestParam("goods_status") String goods_status,
+                                           @RequestParam("sort_option") String sort_option,HttpServletRequest request, HttpServletResponse response) throws Exception;
 }

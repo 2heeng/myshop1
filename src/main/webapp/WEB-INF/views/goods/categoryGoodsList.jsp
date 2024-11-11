@@ -110,22 +110,32 @@
 
 
     <div class="category_shop">
+        <ul>
+            <li>
         <c:set var="goods_count" value="0"/>
         <%--    <h3>IT/인터넷</h3>--%>
         <c:forEach var="item" items="${goodsMap.goodsList }">
             <c:set var="goods_count" value="${goods_count+1 }"/>
             <div class="maingoods">
+
                 <a href="${contextPath}/goods/goodsDetail.do?goods_id=${item.goods_id }">
                     <img class="link" src="${contextPath}/resources/image/1px.gif">
                 </a>
                 <img
                      src="${contextPath}/thumbnails.do?goods_id=${item.goods_id}&fileName=${item.goods_fileName}">
-
-                <div class="title">${item.goods_title }</div>
-                <div class="price">
+            </div>
+            <div class="discription">
+               <ul>
+                   <li><div class="title">${item.goods_title }</div></li>
+                   <li></li>
+                   <li>
+                    <div class="price">
                     <fmt:formatNumber value="${item.goods_price}" type="number" var="goods_price"/>
                         ${goods_price}원
-                </div>
+                    </div>
+                   </li>
+               </ul>
+               <ul></ul>
             </div>
             <c:if test="${goods_count==15   }">
                 <div class="maingoods">
@@ -133,6 +143,8 @@
                 </div>
             </c:if>
         </c:forEach>
+            </li>
+        </ul>
     </div>
 </div>
 

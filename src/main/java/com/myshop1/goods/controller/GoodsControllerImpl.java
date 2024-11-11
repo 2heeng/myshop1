@@ -124,7 +124,50 @@ public class GoodsControllerImpl extends BaseController implements GoodsControll
 //        return mav;
 //    }
 
+    //이벤트 카테고리
+    @Override
+    @RequestMapping(value="/eventGoodsList.do" ,method = {RequestMethod.GET,RequestMethod.POST})
+    public ModelAndView eventCategoryGoods(@RequestParam("goods_status") String goods_status,
+                                      @RequestParam("sort_option") String sort_option,HttpServletRequest request, HttpServletResponse response) throws Exception {
 
+        log.info("goods_status: "+goods_status);
+        log.info("sort_option: "+sort_option);
+
+        HttpSession session;
+        ModelAndView mav = new ModelAndView();
+        String viewName = "/goods/categoryGoodsList";
+//        String viewName = (String)request.getAttribute("viewName");
+        mav.setViewName(viewName);
+
+        session=request.getSession();
+        session.setAttribute("side_menu", "user");
+
+        Map<String,String> sortMap = new HashMap<>();
+        sortMap.put("category",goods_status);
+        if(sort_option.equals("낮은 가격순")){
+            sortMap.put("sort_option","low_price");
+            log.info(sortMap.get("sort_option"));
+            //sortMap.put("order","asc");
+        } else if(sort_option.equals("높은 가격순")){
+            sortMap.put("sort_option","high_price");
+            //sortMap.put("order","desc");
+        } else if(sort_option.equals("가나다순")){
+            sortMap.put("sort_option","alphabetical");
+            //sortMap.put("order","asc");
+        } else{
+            sortMap.put("sort_option","default");
+            //sortMap.put("order","desc");
+        }
+
+        log.info(sortMap);
+        Map<String, List<GoodsVO>> goodsMap= goodsService.eventCategoryGoods(sortMap);
+        //log.info(goodsMap);
+        mav.addObject("goodsMap",goodsMap);
+        return mav;
+    }
+
+
+    //카테고리별 상품 리스트
     @Override
     @RequestMapping(value="/categoryGoodsList.do" ,method = {RequestMethod.GET,RequestMethod.POST})
     public ModelAndView categoryGoods(@RequestParam("goods_sort") String goods_sort,
@@ -164,7 +207,6 @@ public class GoodsControllerImpl extends BaseController implements GoodsControll
         mav.addObject("goodsMap",goodsMap);
         return mav;
     }
-
 
     //최근본상품 추가 메소드
     private void addGoodsInQuick(String goods_id,GoodsVO goodsVO,HttpSession session){

@@ -35,6 +35,9 @@ b {
 	max-width: 1500px;
 	/*min-height: calc( 100% - 570px );*/
 }
+ul {
+	list-style: none;
+}
 
 
 /*header*/
@@ -412,7 +415,7 @@ ul.tabs li.active {
 	background: rgb(255, 255, 255); border-color: rgb(255, 0, 0) rgb(255, 0, 0) rgb(255, 255, 255); border-bottom-width: 2px; border-bottom-style: solid;
 }
 ul.tabs li.active a:hover {
-	background: rgb(255, 255, 255); border-color: rgb(255, 0, 0) rgb(255, 0, 0) rgb(255, 255, 255); border-bottom-width: 2px; border-bottom-style: solid;
+	background: rgb(255, 255, 255); border-color: rgb(208, 211, 215) rgb(255, 0, 0) rgb(255, 255, 255); border-bottom-width: 2px; border-bottom-style: solid;
 }
 .tab_container {
 	background: rgb(255, 255, 255); width: 100%; clear: both; border-top-color: currentColor; border-top-width: medium; border-top-style: none; float: left;
@@ -709,7 +712,7 @@ article h1_TITLE {
 	margin: 5px 0px 0px;
 }
 .main_shop .maingoods:hover {
-	border: 2px solid rgb(255, 0, 0); border-image: none; background-image: none;
+	border: 2px solid rgb(208, 208, 208); border-image: none; background-image: none;
 }
 .main_shop .no_back.maingoods {
 	background-image: none;
@@ -743,6 +746,9 @@ display:none; position: absolute; left: 830px; top:80px; border: 0.1px  solid #8
 #categoryGoodsList {
 	height: 100%;
 }
+/*#categoryGoodsList ul {*/
+/*	list-style: none;*/
+/*}*/
 #goodsSort {
 	padding-top: 100px;
 }
@@ -773,7 +779,7 @@ display:none; position: absolute; left: 830px; top:80px; border: 0.1px  solid #8
 	margin: 5px 0px 0px;
 }
 .category_shop .maingoods:hover {
-	border: 2px solid rgb(255, 0, 0); border-image: none; background-image: none;
+	border: 2px solid rgb(208,208,208); border-image: none; background-image: none;
 }
 .category_shop .no_back.maingoods {
 	background-image: none;

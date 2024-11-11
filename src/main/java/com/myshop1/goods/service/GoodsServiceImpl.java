@@ -61,4 +61,13 @@ public class GoodsServiceImpl implements GoodsService{
 
         return goodsMap;
     }
+
+    @Override
+    public Map<String, List<GoodsVO>> eventCategoryGoods(Map<String, String> sortMap) throws Exception {
+        Map<String,List<GoodsVO>> goodsMap = new HashMap<String,List<GoodsVO>>();
+        List<GoodsVO> goodsList=goodsDAO.selectGoodsStatusList(sortMap);
+        goodsMap.put("goodsList",goodsList);
+
+        return goodsMap;
+    }
 }

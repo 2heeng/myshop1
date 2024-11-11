@@ -48,12 +48,11 @@
                 </li>
             </c:when>
             <c:otherwise>
-                    <li><a href="#"><b>🏝️SUMMER ITEM🏖️🔅</b></a></li>
-                    <li><a href="#"><b>NEW 5%💟</b></a></li>
-                    <li><a href="#"><b>AREUMDREE BEST👍</b></a></li>
+                    <li><a href="${contextPath}/goods/eventGoodsList.do?goods_status=summer&sort_option="><b>🏝️SUMMER ITEM🏖️🔅</b></a></li>
+                    <li><a href="${contextPath}/goods/eventGoodsList.do?goods_status=newgoods&sort_option="><b>NEW 5%💟</b></a></li>
+                    <li><a href="${contextPath}/goods/eventGoodsList.do?goods_status=best&sort_option="><b>AREUMDREE BEST👍</b></a></li>
                     <li></li>
-                    <li><a href="${contextPath}/goods/categoryGoodsList.do?category=IT/인터넷&sort_option=">IT/인터넷</a></li>
-                    <li><a href="${contextPath}/goods/categoryGoodsList.do?category=영화 DVD&sort_option=">영화 DVD</a></li>
+                    <li></li>
                     <li></li>
                     <li><a href="${contextPath}/goods/categoryGoodsList.do?goods_sort=clothes&sort_option=">CLOTHES</a></li>
                     <li><a href="${contextPath}/goods/categoryGoodsList.do?goods_sort=walking&sort_option=">WALKING</a></li>

@@ -14,6 +14,7 @@ public interface GoodsService {
     public List<GoodsVO> searchGoods(String searchWord) throws Exception;
     //해당되는 카테고리의 상품만 조회 - 기본정렬
     public Map<String, List<GoodsVO>> categoryListGoods(Map<String,String> sortMap) throws Exception;
-
+    //이벤트 카테고리
+    public Map<String, List<GoodsVO>> eventCategoryGoods(Map<String,String> sortMap) throws Exception;
 
 }

@@ -16,5 +16,6 @@ public interface GoodsDAO {
     public List<GoodsVO> selectGoodsBySearchWord(String searchWord) throws DataAccessException;
     //카테고리별 상품 리스트(goods_sort로 조회) - 기본정렬
     public List<GoodsVO> selectGoodsSortList(Map<String,String> sortMap) throws DataAccessException;
-
+    //이벤트 카테고리
+    public List<GoodsVO> selectGoodsStatusList(Map<String,String> sortMap) throws DataAccessException;
 }
