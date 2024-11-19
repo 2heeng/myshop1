@@ -744,13 +744,82 @@ display:none; position: absolute; left: 830px; top:80px; border: 0.1px  solid #8
 
 /*카테고리별 상품리스트*/
 #categoryGoodsList {
+	width: 100%;
 	height: 100%;
-}
-/*#categoryGoodsList ul {*/
-/*	list-style: none;*/
-/*}*/
-#goodsSort {
 	padding-top: 100px;
+}
+.category_shop {
+	width: 100%;
+}
+.category_shop ul {
+	width: 100%;
+}
+#categoryGoodsList h3 {
+	font-size: 20px;
+	color: #000000;
+	text-align: center;
+	font-weight: bold;
+	width: 100%;
+	/*width: 988px;*/
+	max-width: 1049px;
+	margin-bottom: 40px;
+	text-transform: uppercase;
+	font-family: "NanumGothic", Serif;
+	border-bottom-color: #000000; border-bottom-width: 2px;
+	border-bottom-style: solid;
+}
+/* 상품 리스트 ul */
+#categoryGoodsList ul li {
+	display: inline-block;
+	width: 33.33%;
+	height: auto;
+}
+/*.category_shop li {*/
+/*	display: inline-block; !* 가로 정렬 *!*/
+/*	vertical-align: top;*/
+/*	width: 200px; !* 각 아이템의 너비 설정 *!*/
+/*	margin: 10px; !* 아이템 간격 *!*/
+/*	padding: 0; !* 여백 초기화 *!*/
+/*	box-sizing: border-box; !* 패딩 포함 크기 계산 *!*/
+/*	text-align: center; !* 내용 중앙 정렬 *!*/
+/*}*/
+/*.category_shop ul::after {*/
+/*	content: "";*/
+/*	display: block;*/
+/*	clear: both;*/
+/*}*/
+/*.maingoods {*/
+/*	width: 100%; !* 부모 영역의 전체 너비 사용 *!*/
+/*	height: auto; !* 이미지 크기 유지 *!*/
+/*}*/
+
+.category_shop .maingoods {
+	background-position: right;
+	border: 2px solid rgb(255, 255, 255); border-image: none;
+	height: 494px;
+	width: 380px;
+	text-align: center; float: left;
+	background-image: url("../imgs/vline_grey.gif"); background-repeat: repeat-y;
+	overflow: hidden;
+	margin: 0 10px 0;
+}
+/* 상품 이미지 */
+.category_shop .maingoods img {
+	display: block;
+	width: 100%;
+	height: 100%;
+	margin: 5px 0px 0px;
+}
+/* 상품명과 가격 컨테이너 */
+.discription {
+	width: 100%; /* 부모 영역 너비394와 동일하게 */
+	margin-top: 10px;
+	margin: 0 auto;
+	padding: 0 10px;
+}
+#goodsSort {
+
+	/*padding-top: 100px;*/
 }
 
 #sort_options {
@@ -761,23 +830,16 @@ display:none; position: absolute; left: 830px; top:80px; border: 0.1px  solid #8
 /*	margin-bottom: 10px;*/
 }
 .category_shop {
-	width: auto; padding-top: 7px; font-size: 0.75em; margin-left: 30px;
+	width: 100%; height: 100%;
+	padding-top: 7px; font-size: 0.75em;
 }
 .category_shop h3 {
 	font-size: 20px; color: #000000; text-align: center; font-weight: bold; width: 988px; max-width: 1049px; margin-bottom: 40px;
 	text-transform: uppercase; font-family: "NanumGothic", Serif; border-bottom-color: #000000; border-bottom-width: 2px; border-bottom-style: solid;
 }
 
-.category_shop .maingoods {
-	background-position: right; border: 2px solid rgb(255, 255, 255); border-image: none;
-	width: 346px; height: 438px; text-align: center; float: left; background-image: url("../imgs/vline_grey.gif"); background-repeat: repeat-y;
-	overflow: hidden; margin-left: 15px; margin-right: 10px;
-}
-.category_shop .maingoods img {
-	width: 100%;
-	height: 100%;
-	margin: 5px 0px 0px;
-}
+
+/* hover 효과 */
 .category_shop .maingoods:hover {
 	border: 2px solid rgb(208,208,208); border-image: none; background-image: none;
 }
@@ -787,9 +849,11 @@ display:none; position: absolute; left: 830px; top:80px; border: 0.1px  solid #8
 .category_shop .maingoods .sort {
 	margin: 0px; padding: 2px 0px; margin-top: 4px;
 }
+/* 상품명 */
 .category_shop .maingoods .title {
 	margin: 0px; padding: 2px 0px; font-weight: bold;
 }
+/* 상품 가격 */
 .category_shop .maingoods .price {
 	margin: 0px; padding: 2px 0px;
 }

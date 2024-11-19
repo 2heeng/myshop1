@@ -93,6 +93,8 @@
 <body>
 
 <div id="categoryGoodsList">
+       <div><h3>${param.goods_status}</h3></div>
+
     <%--상품정렬 드롭다운--%>
     <div id="goodsSort">
         <section class="sort_selector">
@@ -106,16 +108,15 @@
         </section>
     </div>
 
-<%--    <h1>${param.category}</h1>--%>
 
 
     <div class="category_shop">
         <ul>
-            <li>
         <c:set var="goods_count" value="0"/>
         <%--    <h3>IT/인터넷</h3>--%>
         <c:forEach var="item" items="${goodsMap.goodsList }">
             <c:set var="goods_count" value="${goods_count+1 }"/>
+            <li>
             <div class="maingoods">
 
                 <a href="${contextPath}/goods/goodsDetail.do?goods_id=${item.goods_id }">
@@ -142,8 +143,9 @@
                     <font size=20> <a href="#">more</a></font>
                 </div>
             </c:if>
-        </c:forEach>
             </li>
+        </c:forEach>
+
         </ul>
     </div>
 </div>
