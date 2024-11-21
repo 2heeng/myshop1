@@ -753,6 +753,18 @@ display:none; position: absolute; left: 830px; top:80px; border: 0.1px  solid #8
 }
 .category_shop ul {
 	width: 100%;
+	display: flex;
+	flex-wrap: wrap; /* 줄바꿈 허용 */
+	gap: 20px; /* 아이템 간 여백 */
+	justify-content: space-between; /* 아이템 간 공간 균등 */
+	padding: 0;
+	margin: 0;
+}
+.category_shop ul li {
+	flex: 1 1 calc((100% - 40px) / 3); /* 3등분: 여백 포함 계산 */
+	max-width: 350px; /* 최대 너비 제한 */
+	height: auto; /* 높이는 콘텐츠에 따라 */
+	box-sizing: border-box; /* 패딩과 보더 포함 크기 계산 */
 }
 #categoryGoodsList h3 {
 	font-size: 20px;
@@ -769,11 +781,11 @@ display:none; position: absolute; left: 830px; top:80px; border: 0.1px  solid #8
 	border-bottom-style: solid;
 }
 /* 상품 리스트 ul */
-#categoryGoodsList ul li {
-	display: inline-block;
-	width: 33.33%;
-	height: auto;
-}
+/*#categoryGoodsList ul li {*/
+/*	display: inline-block;*/
+/*	width: 33.33%;*/
+/*	height: auto;*/
+/*}*/
 /*.category_shop li {*/
 /*	display: inline-block; !* 가로 정렬 *!*/
 /*	vertical-align: top;*/
@@ -793,15 +805,24 @@ display:none; position: absolute; left: 830px; top:80px; border: 0.1px  solid #8
 /*	height: auto; !* 이미지 크기 유지 *!*/
 /*}*/
 
+/*.category_shop .maingoods {*/
+/*	background-position: right;*/
+/*	border: 2px solid rgb(255, 255, 255); border-image: none;*/
+/*	height: 494px;*/
+/*	width: 380px;*/
+/*	text-align: center; float: left;*/
+/*	background-image: url("../imgs/vline_grey.gif"); background-repeat: repeat-y;*/
+/*	overflow: hidden;*/
+/*	margin: 0 10px 0;*/
+/*}*/
 .category_shop .maingoods {
-	background-position: right;
-	border: 2px solid rgb(255, 255, 255); border-image: none;
-	height: 494px;
-	width: 380px;
-	text-align: center; float: left;
-	background-image: url("../imgs/vline_grey.gif"); background-repeat: repeat-y;
+	width: 100%; /* flex 컨테이너에서 너비 자동 조정 */
+	height: 600px; /* 높이 자동 조정 */
+	margin: 0; /* 불필요한 여백 제거 */
+	border: 2px solid rgb(255, 255, 255); /* 기존 스타일 유지 */
+	background-image: url("../imgs/vline_grey.gif");
+	background-repeat: repeat-y;
 	overflow: hidden;
-	margin: 0 10px 0;
 }
 /* 상품 이미지 */
 .category_shop .maingoods img {
