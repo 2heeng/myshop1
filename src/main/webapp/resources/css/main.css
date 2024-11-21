@@ -817,7 +817,7 @@ display:none; position: absolute; left: 830px; top:80px; border: 0.1px  solid #8
 /*}*/
 .category_shop .maingoods {
 	width: 100%; /* flex 컨테이너에서 너비 자동 조정 */
-	height: 600px; /* 높이 자동 조정 */
+	height: 600px; /* .높이 자동 조정 */
 	margin: 0; /* 불필요한 여백 제거 */
 	border: 2px solid rgb(255, 255, 255); /* 기존 스타일 유지 */
 	background-image: url("../imgs/vline_grey.gif");
