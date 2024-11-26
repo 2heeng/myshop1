@@ -111,7 +111,7 @@
 
 
     <div class="category_shop">
-        <ul>
+        <ul id="goodsThumbnail">
         <c:set var="goods_count" value="0"/>
         <%--    <h3>IT/인터넷</h3>--%>
         <c:forEach var="item" items="${goodsMap.goodsList }">
@@ -126,16 +126,24 @@
                      src="${contextPath}/thumbnails.do?goods_id=${item.goods_id}&fileName=${item.goods_fileName}">
             </div>
             <div class="discription">
-               <ul>
-                   <li><div class="title">${item.goods_title }</div></li>
-                   <li></li>
-                   <li>
-                    <div class="price">
-                    <fmt:formatNumber value="${item.goods_price}" type="number" var="goods_price"/>
-                        ${goods_price}원
-                    </div>
-                   </li>
-               </ul>
+                <p></p>
+                <div class="title">${item.goods_title }</div>
+                <p></p>
+                <div class="price">
+                <fmt:formatNumber value="${item.goods_price}" type="number" var="goods_price"/>
+                    ${goods_price}원
+                 </div>
+                <p></p>
+<%--               <ul>--%>
+<%--                   <li><div class="title">${item.goods_title }</div></li>--%>
+<%--                   <li></li>--%>
+<%--                   <li>--%>
+<%--                    <div class="price">--%>
+<%--                    <fmt:formatNumber value="${item.goods_price}" type="number" var="goods_price"/>--%>
+<%--                        ${goods_price}원--%>
+<%--                    </div>--%>
+<%--                   </li>--%>
+<%--               </ul>--%>
                <ul></ul>
             </div>
             <c:if test="${goods_count==15   }">
